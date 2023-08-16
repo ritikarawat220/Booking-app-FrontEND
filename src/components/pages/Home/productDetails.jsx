@@ -26,52 +26,54 @@ export default function ProductDetails() {
   //   }
   return (
     <>
-        <div className='heading text-center'>
-          <h3>
-           Product Details {id}
-          </h3>
+      <div className="heading text-center">
+        <h3>
+          Product Details
+          {' '}
+          {id}
+        </h3>
+      </div>
+
+      {productDetails.map((element) => (
+
+        <div key={element.id} className=" container-md display-flex justify-content-center">
+          <div className="display-flex justify-content-center">
+            <img src={element.image} alt={element.img} />
+
+            {' '}
           </div>
-    
-          {productDetails.map((element) => (
-    
-            <div key={element.id} className=" container-md display-flex justify-content-center">
-                <div className='display-flex justify-content-center'>
-            <img src = {element.image}/>
-                  </div>
-                  <div className='container-airp-details'>
-              <li>
-                <div>Brand Name</div>
-                <div>
-                  {element.name}
-                </div>
-              </li>
-              <li>
-    
-              </li>
-              <li>
-                <div>Description</div>
-                           <div>
-                  {element.description}
-    
-                </div>
-              </li>
-              <li>
-                <div>Model </div>
-                <div>
-                  {element.model}
-    
-                </div>
-              </li>           
-              <li>
-                <div>Price </div>
-                <div>
-                  {element.price}
-    
-                </div>
-              </li>
+          <div className="container-airp-details">
+            <li>
+              <div>Brand Name</div>
+              <div>
+                {element.name}
               </div>
-            </div>
-          ))}
-        </>
-      );
-    }
+            </li>
+            <li />
+            <li>
+              <div>Description</div>
+              <div>
+                {element.description}
+
+              </div>
+            </li>
+            <li>
+              <div>Model </div>
+              <div>
+                {element.model}
+
+              </div>
+            </li>
+            <li>
+              <div>Price </div>
+              <div>
+                {element.price}
+
+              </div>
+            </li>
+          </div>
+        </div>
+      ))}
+    </>
+  );
+}
