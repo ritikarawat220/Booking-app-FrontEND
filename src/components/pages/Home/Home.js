@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Home.css';
-import img from '../../../assets/img.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProductDetails } from '../../../redux/productDetails/productDetailsSlice';
 
-const Airplane = ({ model, description }) => (
+const Airplane = ({ model, description, image }) => (
   <>
     <div className="vespa_container">
       <div className="vespa-circle">
-        <img className="vespas" src={img} alt="" />
+        <img className="vespas" src={image} alt="" />
       </div>
       <h3 className="vespa-model">{model.toUpperCase()}</h3>
       <p className="vespa-description">{description}</p>
@@ -18,20 +19,38 @@ const Airplane = ({ model, description }) => (
 Airplane.propTypes = {
   model: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
 };
 
-const Home = () => (
-  <section className="homepage">
-    <div className="hero">
-      <h1 className="hero_header">LATEST MODELS</h1>
-      <p className="hero_text">Please select a Vespa Model</p>
-      <div className="vehicle-container">
-        {[1, 2, 3].map((i) => (
-          <Airplane key={i} model="Vespa C20" description="The Vespa C20 is such a unique model that it has been known for longevity." />
-        ))}
+const Home = () => {
+  const { productDetails } = useSelector((store) => store.productDetails.productDetails);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProductDetails());
+  }, []);
+  const name = localStorage.getItem('name');
+
+  return (
+    <section className="homepage">
+      <div className="hero">
+        <h1 className="hero_header">
+          Welcome Back,
+          {name}
+        </h1>
+        <p className="hero_text">Please select a Model</p>
+        <div className="vehicle-container">
+          {productDetails.map((element) => (
+            <Airplane
+              key={element.id}
+              model={element.model}
+              description={element.description}
+              image={element.image}
+            />
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default Home;
