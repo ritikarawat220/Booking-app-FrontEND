@@ -8,11 +8,10 @@ const initialState = {
 
 export const fetchProductDetails = createAsyncThunk('productDetails/fetchProductDetails', async () => {
   try {
-    // const response = await axios.get('http://127.0.0.1:3001/api/products');
-    const response = await axios.get('');
+    const response = await axios.get('http://localhost:4000/aeroplanes/index');
     return response.data;
   } catch (error) {
-    return error.message;
+    throw error;
   }
 });
 
