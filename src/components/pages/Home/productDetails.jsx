@@ -1,11 +1,10 @@
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchProductDetails } from '../../../redux/productDetails/productDetailsSlice';
 
-export default function ProductDetails() {
+const ProductDetails = () => {
   const dispatch = useDispatch();
-
   const { id } = useParams();
 
   const { productDetails, isLoading } = useSelector((store) => store.productDetails);
@@ -15,22 +14,14 @@ export default function ProductDetails() {
   }, [dispatch]);
 
   if (isLoading) {
-    return (
-      <h3>Loading...</h3>
-    );
+    return <h3>Loading...</h3>;
   }
-  //    if (isError) {
-  //     return (
-  //       <h3>Error Occured while fetchinng...</h3>
-  //     );
-  //   }
+
   return (
     <>
       <div className="heading text-center">
         <h3>
-          Product Details
-          {' '}
-          {id}
+          Product Details {id}
         </h3>
       </div>
 
