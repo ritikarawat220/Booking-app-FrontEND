@@ -31,7 +31,7 @@ const SideBar = () => (
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink to="/lifestyle" className="nav-link">
+            <NavLink to="/reserve" className="nav-link">
               <FontAwesomeIcon icon={faBookmark} className="navIcon" />
               <span className="navText">RESERVE AIRPLANE</span>
             </NavLink>
