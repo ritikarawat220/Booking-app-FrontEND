@@ -5,6 +5,7 @@ import SideBar from './components/SideBar/SideBar';
 import Home from './components/pages/Home/Home';
 import Shop from './components/pages/shop/Shop';
 import NotFound from './components/pages/404/NotFound';
+import Login from './components/pages/registration/Login';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
             <Route
               path="/lifestyle"
               element={<h1>This is the LIFESTYLE page</h1>}
