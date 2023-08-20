@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export const loginAsync = createAsyncThunk('login/loginAsync', async (credentials) => {
-  const res = await fetch('http//xyz.com', {
+  const res = await fetch('http://127.0.0.1:4000/login', {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
