@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Home.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,11 +23,11 @@ Airplane.propTypes = {
 };
 
 const Home = () => {
-  const { productDetails } = useSelector((store) => store.productDetails.productDetails);
+  const { productDetails } = useSelector((store) => store.productDetails);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProductDetails());
-  }, []);
+  }, [dispatch]);
   const name = localStorage.getItem('name');
 
   return (
@@ -39,14 +39,18 @@ const Home = () => {
         </h1>
         <p className="hero_text">Please select a Model</p>
         <div className="vehicle-container">
-          {productDetails.map((element) => (
-            <Airplane
-              key={element.id}
-              model={element.model}
-              description={element.description}
-              image={element.image}
-            />
-          ))}
+          {productDetails ? (
+            productDetails.map((element) => (
+              <Airplane
+                key={element.id}
+                model={element.model}
+                description={element.description}
+                image={element.image}
+              />
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
         </div>
       </div>
     </section>

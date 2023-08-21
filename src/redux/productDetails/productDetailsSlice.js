@@ -7,12 +7,8 @@ const initialState = {
 };
 
 export const fetchProductDetails = createAsyncThunk('productDetails/fetchProductDetails', async () => {
-  try {
-    const response = await axios.get('http://localhost:4000/aeroplanes/index');
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
+  const response = await axios.get('http://localhost:4000/aeroplanes');
+  return response.data;
 });
 
 export const productDetailsSlice = createSlice({
