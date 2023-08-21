@@ -5,20 +5,22 @@
   bottom: 0;
   right: 0;
 }
+
 .hero {
   text-align: center;
   position: relative;
   height: 100vh;
-  height: 100dvh;
   padding-top: 6rem;
   background-color: #fefefe;
 }
+
 .hero_header {
   font-weight: 900;
   font-size: 2rem;
   letter-spacing: 3px;
   word-spacing: 5px;
 }
+
 .hero_text {
   width: fit-content;
   color: #9a9a9a;
@@ -29,30 +31,34 @@
   padding-bottom: 2rem;
   border-bottom: 2px dashed #9a9a9a;
 }
+
 .vehicle-container {
   width: 80%;
   display: flex;
   margin: 0 auto;
+
   /* flex-wrap: wrap; */
   overflow-x: scroll;
   justify-content: center;
   gap: 5rem;
+
   /* border: 2px dashed; */
   transform: translateY(8rem);
 }
-.vehicle-container::-webkit-scrollbar {
-    display: none;
-  }
 
-  .vespa_container {
+.vehicle-container::-webkit-scrollbar {
+  display: none;
+}
+
+.vespa_container {
   display: flex;
+
   /* border: 2px dashed; */
   width: 16rem;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
 }
-
 
 .vespa-circle {
   width: 10rem;
@@ -65,7 +71,6 @@
   width: calc(100% + 8rem);
   transition: transform 0.3s ease;
 }
-
 
 .vespas:hover {
   transform: scale(1.03);
@@ -80,11 +85,13 @@
   padding: 18px 0;
   border-bottom: 2px dashed gray;
 }
+
 .vespa-description {
   font-size: 0.875rem;
   line-height: 20px;
   color: rgb(177, 177, 177);
 }
+
 @media (max-width: 768px) {
   .homepage {
     width: 100%;
