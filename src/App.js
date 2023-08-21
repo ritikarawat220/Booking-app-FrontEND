@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from './components/SideBar/SideBar';
 import Home from './components/pages/Home/Home';
+import ReservePLane from './components/pages/reserve/ReservePLane';
 import Shop from './components/pages/shop/Shop';
 import NotFound from './components/pages/404/NotFound';
 
@@ -13,13 +14,10 @@ function App() {
         <div className="col-auto">
           <SideBar />
         </div>
-        <div>
+        <div className="mainSection">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route
-              path="/lifestyle"
-              element={<h1>This is the LIFESTYLE page</h1>}
-            />
+            <Route path="/reserve" element={<ReservePLane />} />
             <Route path="/shop" element={<Shop />} />
             <Route
               path="/test-drive"
