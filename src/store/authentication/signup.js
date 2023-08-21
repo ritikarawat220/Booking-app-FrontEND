@@ -7,13 +7,13 @@ const initialState = {
   token: null,
 };
 
-export const signupAsync = createAsyncThunk('signup/signupAsync', async (userInfo) => {
+export const signupAsync = createAsyncThunk('signup/signupAsync', async (userData) => {
   const res = await fetch('http://127.0.0.1:4000/signup/sign_up', {
     method: 'POST',
     headers: {
       'Contenet-Type': 'applicatiom/json',
     },
-    body: JSON.stringify(userInfo),
+    body: JSON.stringify(userData),
   });
 
   if (!res.ok) {
