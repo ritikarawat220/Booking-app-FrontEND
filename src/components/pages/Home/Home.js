@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Home.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductDetails } from '../../../redux/productDetails/productDetailsSlice';
+import { fetchProductDetails } from '../../../store/productDetails/productDetailsSlice';
 
 const Airplane = ({ model, description, image }) => (
   <>
