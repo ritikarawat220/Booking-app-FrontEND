@@ -6,7 +6,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const { loading, error, token } = useSelector((state) => state.login);
 
-  const [credentials, setCredentials] = useState({ username: '', password: '' });
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
 
   const handleLogin = () => {
     dispatch(loginAsync(credentials));
@@ -29,8 +29,8 @@ const Login = () => {
           <input
             type="text"
             placeholder="Username"
-            value={credentials.username}
-            onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
+            value={credentials.email}
+            onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
           />
           <input
             type="password"
