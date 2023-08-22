@@ -8,13 +8,22 @@ const initialState = {
 };
 
 export const signupAsync = createAsyncThunk('signup/signupAsync', async (userData) => {
-  const res = await fetch('http://127.0.0.1:4000/signup/sign_up', {
+  console.log('Request data:', JSON.stringify(userData));
+  const res = await fetch('http://127.0.0.1:4000/signup', {
     method: 'POST',
     headers: {
-      'Contenet-Type': 'applicatiom/json',
+      'Content-Type': 'application/json',
     },
-    body: JSON.stringify(userData),
+    body: JSON.stringify({
+      user: {
+        name: userData.name,
+        email: userData.email,
+        password: userData.password,
+      },
+    }),
   });
+
+  console.log('res', res);
 
   if (!res.ok) {
     const errorData = await res.json();
@@ -30,15 +39,16 @@ const signupSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(signupAsync.pending, (state) => ({
-      ...state, loading: true, error: null,
-    }));
-    builder.addcase(signupAsync.fulfilled, (state, action) => ({
-      ...state, loading: false, token: action.payload.token, user: action.payload.user,
-    }));
-    builder.addCase(signupAsync.rejected, (state, action) => ({
-      ...state, loading: false, error: action.error.message,
-    }));
+    builder
+      .addCase(signupAsync.pending, (state) => ({
+        ...state, loading: true, error: null,
+      }))
+      .addCase(signupAsync.fulfilled, (state, action) => ({
+        ...state, loading: false, token: action.payload.token, user: action.payload.user,
+      }))
+      .addCase(signupAsync.rejected, (state, action) => ({
+        ...state, loading: false, error: action.error.message,
+      }));
   },
 });
 
