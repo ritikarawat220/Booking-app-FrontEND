@@ -50,6 +50,10 @@ const ProductDetails = () => {
               <div>Price</div>
               <div>{element.price}</div>
             </li>
+            <li>
+              <div>Booking Price</div>
+              <div>{element.Booking_Price}</div>
+            </li>
           </div>
         </div>
       ))}
