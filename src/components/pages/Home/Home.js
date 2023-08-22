@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductDetails } from '../../../store/productDetails/productDetailsSlice';
@@ -23,30 +24,39 @@ Airplane.propTypes = {
 };
 
 const Home = () => {
-  const { productDetails } = useSelector((store) => store.productDetails);
+  const navigate = useNavigate();
+  const { Products } = useSelector((store) => store.productDetails);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProductDetails());
   }, [dispatch]);
-  const name = localStorage.getItem('name');
 
   return (
     <section className="homepage">
       <div className="hero">
-        <h1 className="hero_header">
-          Welcome Back,
-          {name}
-        </h1>
+        <h1 className="hero_header">LATEST MODELS</h1>
         <p className="hero_text">Please select a Model</p>
         <div className="vehicle-container">
-          {productDetails ? (
-            productDetails.map((element) => (
-              <Airplane
+          {Products ? (
+            Products.map((element) => (
+              <div
                 key={element.id}
-                model={element.model}
-                description={element.description}
-                image={element.image}
-              />
+                onClick={() => navigate(`aeroplanes/${element.id}`)}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter') {
+                    navigate(`aeroplanes/${element.id}`);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+              >
+                <Airplane
+                  key={element.id}
+                  model={element.model}
+                  description={element.description}
+                  image={element.image}
+                />
+              </div>
             ))
           ) : (
             <p>Loading...</p>
