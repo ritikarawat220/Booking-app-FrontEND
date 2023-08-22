@@ -8,10 +8,11 @@ function Signup() {
     loading, error, user, token,
   } = useSelector((state) => state.signup);
 
-  const [userData, setUserData] = useState({ username: '', email: '', password: '' });
+  const [userData, setUserData] = useState({ name: '', email: '', password: '' });
 
   const handleSignup = () => {
     dispatch(signupAsync(userData));
+    window.location.href = '/login';
   };
 
   return (
@@ -27,15 +28,15 @@ function Signup() {
       {user && token && (
       <p>
         Signup successful. Welcome,
-        {user.username}
+        {user.name}
         !
       </p>
       )}
       <input
         type="text"
         placeholder="Username"
-        value={userData.username}
-        onChange={(e) => setUserData({ ...userData, username: e.target.value })}
+        value={userData.name}
+        onChange={(e) => setUserData({ ...userData, name: e.target.value })}
       />
       <input
         type="email"
