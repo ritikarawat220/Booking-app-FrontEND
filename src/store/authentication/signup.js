@@ -9,7 +9,7 @@ const initialState = {
 
 export const signupAsync = createAsyncThunk('signup/signupAsync', async (userData) => {
   console.log('Request data:', JSON.stringify(userData));
-  const res = await fetch('http://127.0.0.1:4000/signup', {
+  const res = await fetch('https://aeroplane-find.onrender.com/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -19,6 +19,7 @@ export const signupAsync = createAsyncThunk('signup/signupAsync', async (userDat
         name: userData.name,
         email: userData.email,
         password: userData.password,
+        password_confirmation: userData.password_confirmation,
       },
     }),
   });
