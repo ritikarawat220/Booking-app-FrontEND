@@ -7,6 +7,8 @@ import ReservePLane from './components/pages/reserve/ReservePLane';
 import ProductDescription from './components/pages/Home/ProductDescription';
 import Shop from './components/pages/shop/Shop';
 import NotFound from './components/pages/404/NotFound';
+import Login from './components/pages/registration/Login';
+import Signup from './components/pages/registration/Signup';
 
 function App() {
   return (
@@ -21,6 +23,13 @@ function App() {
             <Route exact path="aeroplanes/:id" element={<ProductDescription />} />
             <Route exact path="/" element={<Home />} />
             <Route path="/reserve" element={<ReservePLane />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="signup" element={<Signup />} />
+            <Route
+              path="/lifestyle"
+              element={<h1>This is the LIFESTYLE page</h1>}
+            />
             <Route path="/shop" element={<Shop />} />
             <Route
               path="/test-drive"
