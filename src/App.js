@@ -32,6 +32,7 @@ function App() {
             <Route path="aeroplanes/create" element={<AddAeroplane />} />
             <Route path="deleteaeroplane" element={<DeleteAeroplane />} />
             <Route path="/reserve" element={<ReservePLane />} />
+            <Route path="/my-reservations" element={<MyReservations />} />
             <Route path="/test-drive" element={<h1>This is the TEST DRIVE page</h1>} />
             <Route path="/aeroplanes/:id" element={<ProductDescription />} />
             <Route path="*" element={<NotFound />} />
