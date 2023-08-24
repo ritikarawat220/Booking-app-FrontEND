@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="aeroplaneCont"
+>
+  <h2
+    className="aerohead"
+  >
+    Add Aeroplane
+  </h2>
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <input
+      className="aeroinput"
+      onChange={[Function]}
+      placeholder="Name"
+      type="text"
+      value=""
+    />
+    <br />
+    <br />
+    <input
+      className="aeroinput"
+      onChange={[Function]}
+      placeholder="Description"
+      type="text"
+      value=""
+    />
+    <br />
+    <br />
+    <input
+      className="aeroinput"
+      onChange={[Function]}
+      placeholder="Model"
+      type="text"
+      value=""
+    />
+    <br />
+    <br />
+    <input
+      className="aeroinput"
+      onChange={[Function]}
+      placeholder="Price"
+      type="number"
+      value=""
+    />
+    <br />
+    <br />
+    <input
+      className="aeroinput"
+      onChange={[Function]}
+      placeholder="Booking-Price"
+      type="number"
+      value=""
+    />
+    <br />
+    <br />
+    <input
+      className="aeroinput"
+      onChange={[Function]}
+      placeholder="Image Address"
+      type="text"
+      value=""
+    />
+    <br />
+    <br />
+    <button
+      className="loginbtn"
+      placeholder="Submit"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
