@@ -7,7 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Layout from './components/Layout';
 import Home from './components/pages/Home/Home';
 import ReservePLane from './components/pages/reserve/ReservePLane';
-import Shop from './components/pages/shop/Shop';
+import MyReservations from './components/pages/my_reservation/MyReservations';
+import ProductDescription from './components/pages/Home/ProductDescription';
 import NotFound from './components/pages/404/NotFound';
 import Login from './components/pages/registration/Login';
 import Signup from './components/pages/registration/Signup';
@@ -30,8 +31,9 @@ function App() {
             <Route path="/reserve" element={<ReservePLane />} />
             <Route path="aeroplanes/create" element={<AddAeroplane />} />
             <Route path="deleteaeroplane" element={<DeleteAeroplane />} />
-            <Route path="/shop" element={<Shop />} />
+            <Route path="/reserve" element={<ReservePLane />} />
             <Route path="/test-drive" element={<h1>This is the TEST DRIVE page</h1>} />
+            <Route path="/aeroplanes/:id" element={<ProductDescription />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Route>

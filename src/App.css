@@ -4,6 +4,13 @@
 
 .mainSection {
   width: 100%;
+  margin-left: 200px;
+}
+
+@media only screen and (max-width: 768px) {
+  .mainSection {
+    margin-left: 70px;
+  }
 }
 
 .login {
@@ -52,6 +59,38 @@
 .aerohead {
   border-bottom: 2px solid  #1c3348;
   margin-bottom: 50px;
+}
+
+.AeroList {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.list {
+  list-style: none;
+  width: 60%;
+  height: 70%;
+  margin: 0;
+  padding: 0;
+}
+
+.list_item {
+  display: flex;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 2px solid #1c3348;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.aeroDel {
+  background: green;
 }
 
 @media (min-width: 767px) {

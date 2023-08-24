@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<section
+  className="reservattionSection"
+>
+  <h2
+    className="reservationH"
+  >
+    Reserve Aeroplane
+  </h2>
+  <p
+    className="reservationP"
+  >
+    Please fill the form to reserve your Aeroplane
+  </p>
+  <form
+    className="formContainer"
+  >
+    <label
+      className="labelText"
+      htmlFor="name"
+    >
+      Name:
+      <input
+        id="name"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <br />
+    <label
+      className="labelText"
+      htmlFor="city"
+    >
+      City:
+      <input
+        id="city"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+    <br />
+    <label
+      className="labelText"
+      htmlFor="date"
+    >
+      Rervation Date:
+      <input
+        id="date"
+        onChange={[Function]}
+        type="date"
+        value=""
+      />
+    </label>
+    <br />
+    <label
+      className="labelText"
+      htmlFor="returndate"
+    >
+      Return Date:
+      <input
+        id="returndate"
+        onChange={[Function]}
+        type="date"
+        value=""
+      />
+    </label>
+    <br />
+    <label
+      className="labelText"
+      htmlFor="aeroplane"
+    >
+      Aeroplane:
+      <select
+        id="aeroplane"
+      >
+        <option>
+          Select Aeroplane
+        </option>
+        <option
+          value="A320"
+        >
+          A320
+        </option>
+        <option
+          value="A380"
+        >
+          A380
+        </option>
+      </select>
+    </label>
+    <br />
+    <div
+      className="btnContainer"
+    >
+      <button
+        id="reservationBtn"
+        type="submit"
+      >
+        Reserve
+      </button>
+      <button
+        id="checkReservations"
+        type="submit"
+      >
+        Check My Reservations
+      </button>
+    </div>
+  </form>
+</section>
+`;

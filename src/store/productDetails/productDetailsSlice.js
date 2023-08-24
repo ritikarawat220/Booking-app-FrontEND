@@ -6,10 +6,21 @@ const initialState = {
   isLoading: false,
 };
 
-export const fetchProductDetails = createAsyncThunk('productDetails/fetchProductDetails', async () => {
-  const response = await axios.get('http://localhost:4000/aeroplanes');
-  return response.data;
-});
+export const fetchProductDetails = createAsyncThunk(
+  'productDetails/fetchProductDetails',
+  async () => {
+    const response = await axios.get(
+      'https://aeroplane-find.onrender.com/aeroplanes',
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: localStorage.getItem('authToken'),
+        },
+      },
+    );
+    return response.data;
+  },
+);
 
 export const productDetailsSlice = createSlice({
   name: 'productDetails',
@@ -24,21 +35,19 @@ export const productDetailsSlice = createSlice({
       .addCase(fetchProductDetails.fulfilled, (state, action) => {
         const newProducts = [];
         // console.log(action.payload);
-        action.payload.map((element) => (
-          newProducts.push({
-            id: element.id,
-            name: element.name,
-            image: element.image,
-            description: element.description,
-            model: element.model,
-            price: element.price,
-          })
-        ));
-        return ({
+        action.payload.map((element) => newProducts.push({
+          id: element.id,
+          name: element.name,
+          image: element.image,
+          description: element.description,
+          model: element.model,
+          price: element.price,
+        }));
+        return {
           ...state,
           isLoading: false,
           productDetails: newProducts,
-        });
+        };
       })
       .addCase(fetchProductDetails.rejected, (state) => ({
         ...state,

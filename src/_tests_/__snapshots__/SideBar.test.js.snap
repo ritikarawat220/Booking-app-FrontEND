@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<section
+  className="d-flex flex-column justify-content-between vh-100 SideNav"
+>
+  <div>
+    <a
+      className="homeNav"
+      href="/"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-house-user homeIcon"
+        data-icon="house-user"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 576 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c.2 35.5-28.5 64.3-64 64.3H128.1c-35.3 0-64-28.7-64-64V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24zM352 224a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zm-96 96c-44.2 0-80 35.8-80 80c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16c0-44.2-35.8-80-80-80H256z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </a>
+    <hr
+      className="hrLine"
+    />
+    <ul
+      className="nav flex-column"
+    >
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="/aeroplanes/create"
+          onClick={[Function]}
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-plane-up navIcon"
+            data-icon="plane-up"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M192 93.7C192 59.5 221 0 256 0c36 0 64 59.5 64 93.7l0 66.3L497.8 278.5c8.9 5.9 14.2 15.9 14.2 26.6v56.7c0 10.9-10.7 18.6-21.1 15.2L320 320v80l57.6 43.2c4 3 6.4 7.8 6.4 12.8v42c0 7.8-6.3 14-14 14c-1.3 0-2.6-.2-3.9-.5L256 480 145.9 511.5c-1.3 .4-2.6 .5-3.9 .5c-7.8 0-14-6.3-14-14V456c0-5 2.4-9.8 6.4-12.8L192 400V320L21.1 377C10.7 380.4 0 372.7 0 361.8V305.1c0-10.7 5.3-20.7 14.2-26.6L192 160V93.7z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+          <span
+            className="navText"
+          >
+            AIRPLANES
+          </span>
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="/lifestyle"
+          onClick={[Function]}
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-bookmark navIcon"
+            data-icon="bookmark"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 384 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+          <span
+            className="navText"
+          >
+            RESERVE AIRPLANE
+          </span>
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="/shop"
+          onClick={[Function]}
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-cart-flatbed navIcon"
+            data-icon="cart-flatbed"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 640 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M32 0C14.3 0 0 14.3 0 32S14.3 64 32 64H48c8.8 0 16 7.2 16 16V368c0 44.2 35.8 80 80 80h18.7c-1.8 5-2.7 10.4-2.7 16c0 26.5 21.5 48 48 48s48-21.5 48-48c0-5.6-1-11-2.7-16H450.7c-1.8 5-2.7 10.4-2.7 16c0 26.5 21.5 48 48 48s48-21.5 48-48c0-5.6-1-11-2.7-16H608c17.7 0 32-14.3 32-32s-14.3-32-32-32H144c-8.8 0-16-7.2-16-16V80C128 35.8 92.2 0 48 0H32zM192 80V272c0 26.5 21.5 48 48 48H560c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48H464V176c0 5.9-3.2 11.3-8.5 14.1s-11.5 2.5-16.4-.8L400 163.2l-39.1 26.1c-4.9 3.3-11.2 3.6-16.4 .8s-8.5-8.2-8.5-14.1V32H240c-26.5 0-48 21.5-48 48z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+          <span
+            className="navText"
+          >
+            MY RESERVATIONS
+          </span>
+        </a>
+      </li>
+      <li
+        className="nav-item"
+      >
+        <a
+          className="nav-link"
+          href="/test-drive"
+          onClick={[Function]}
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-trash navIcon"
+            data-icon="trash"
+            data-prefix="fas"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+          <span
+            className="navText"
+          >
+            DELETE AIRPLANE
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <div
+      className="imgIcons"
+    >
+      <img
+        alt="Twitter"
+        src="x-twitter.svg"
+      />
+      <img
+        alt="Facebook"
+        src="facebook-f.svg"
+      />
+      <img
+        alt="LinkedIn"
+        src="linkedin-in.svg"
+      />
+      <img
+        alt="Medium"
+        src="medium.svg"
+      />
+    </div>
+    <hr
+      className="hrLine"
+    />
+    <div
+      className="userBottom"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-user userIcon"
+        data-icon="user"
+        data-prefix="far"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+      <span
+        className="fs-4 userName"
+      >
+        John Doe
+      </span>
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-right-from-bracket userLogout"
+        data-icon="right-from-bracket"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</section>
+`;

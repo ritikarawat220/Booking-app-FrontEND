@@ -44,13 +44,13 @@ const SideBar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/lifestyle" className="nav-link">
+              <NavLink to="/reserve" className="nav-link">
                 <FontAwesomeIcon icon={faBookmark} className="navIcon" />
                 <span className="navText">RESERVE AIRPLANE</span>
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/shop" className="nav-link">
+              <NavLink to="/my-reservations" className="nav-link">
                 <FontAwesomeIcon icon={faCartFlatbed} className="navIcon" />
                 <span className="navText">MY RESERVATIONS</span>
               </NavLink>
@@ -75,7 +75,9 @@ const SideBar = () => {
             <FontAwesomeIcon icon={faUser} className="userIcon" />
             <span className="fs-4 userName">John Doe</span>
             <FontAwesomeIcon icon={faRightFromBracket} className="userLogout" />
-            <button type="button" onClick={handleLogout}>Logout</button>
+            <button type="button" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         </div>
       </section>

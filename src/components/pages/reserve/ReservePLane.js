@@ -1,66 +1,98 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { postReservation } from '../../../store/reservations/reservationSlice';
 import './ReservePlane.css';
 
-const ReservePLane = () => {
-  const [name, setName] = useState('');
+const ReservePlane = () => {
+  const airplanes = useSelector((state) => state.productDetails.productDetails);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [city, setCity] = useState('');
-  const [date, setDate] = useState('');
-  const [returndate, setReturndate] = useState('');
+  const [selectedAeroplaneId, setSelectedAeroplaneId] = useState('');
+  const formRef = useRef();
+
+  const cities = [
+    'New York',
+    'Houston',
+    'Phoenix',
+    'Philadelphia',
+    'San Antonio',
+    'San Diego',
+    'Dallas',
+  ];
+
+  const handleReservation = (event) => {
+    event.preventDefault();
+    const formData = new FormData(formRef.current);
+    const form = Object.fromEntries(formData);
+
+    const reservationData = {
+      id: selectedAeroplaneId,
+      reservation: {
+        city,
+        reservation_date: form.reservation_date,
+        returning_date: form.returning_date,
+      },
+    };
+    dispatch(postReservation(reservationData)).then((result) => {
+      if (result && result.error) return;
+      navigate('/my-reservations');
+    });
+    event.target.reset();
+  };
 
   return (
     <>
-      <section className="reservattionSection">
+      <section className="reservationSection">
         <h2 className="reservationH">Reserve Aeroplane</h2>
         <p className="reservationP">
-          Please fill the form to reserve your Aeroplane
+          Please fill out the form to reserve your Aeroplane
         </p>
-        <form className="formContainer">
-          <label htmlFor="name" className="labelText">
-            Name:
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </label>
-          <br />
+        <form
+          onSubmit={handleReservation}
+          ref={formRef}
+          className="formContainer"
+        >
           <label htmlFor="city" className="labelText">
-            City:
-            <input
-              type="text"
+            Select Your City:
+            <select
               id="city"
               value={city}
               onChange={(e) => setCity(e.target.value)}
-            />
+            >
+              <option value="">City of reservation</option>
+              {cities.map((city) => (
+                <option key={city} value={city}>
+                  {city}
+                </option>
+              ))}
+            </select>
           </label>
           <br />
           <label htmlFor="date" className="labelText">
-            Rervation Date:
-            <input
-              type="date"
-              id="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
+            Reservation Date:
+            <input type="date" id="date" name="reservation_date" />
           </label>
           <br />
-          <label htmlFor="returndate" className="labelText">
+          <label htmlFor="returnDate" className="labelText">
             Return Date:
-            <input
-              type="date"
-              id="returndate"
-              value={returndate}
-              onChange={(e) => setReturndate(e.target.value)}
-            />
+            <input type="date" id="returnDate" name="returning_date" />
           </label>
           <br />
           <label htmlFor="aeroplane" className="labelText">
             Aeroplane:
-            <select id="aeroplane">
-              <option>Select Aeroplane</option>
-              <option value="A320">A320</option>
-              <option value="A380">A380</option>
+            <select
+              id="aeroplane"
+              value={selectedAeroplaneId}
+              onChange={(e) => setSelectedAeroplaneId(e.target.value)}
+            >
+              <option defaultValue="Select Aeroplane">Select Aeroplane</option>
+              {airplanes.map((airplane) => (
+                <option key={airplane.id} value={airplane.id}>
+                  {airplane.name}
+                </option>
+              ))}
             </select>
           </label>
           <br />
@@ -68,9 +100,10 @@ const ReservePLane = () => {
             <button type="submit" id="reservationBtn">
               Reserve
             </button>
-            <button type="submit" id="checkReservations">
+            {/* You can add functionality to the "Check My Reservations" button */}
+            {/* <button onClick={handleCheckReservations} id="checkReservations">
               Check My Reservations
-            </button>
+            </button> */}
           </div>
         </form>
       </section>
@@ -78,4 +111,4 @@ const ReservePLane = () => {
   );
 };
 
-export default ReservePLane;
+export default ReservePlane;

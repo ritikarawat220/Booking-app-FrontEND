@@ -28,13 +28,13 @@ const AeroplaneList = () => {
   }
 
   return (
-    <div>
+    <div className="AeroList">
       <h2>Aeroplane List</h2>
-      <ul>
+      <ul className="list">
         {airplanes.map((airplane) => (
-          <li key={airplane.id}>
+          <li className="list_item" key={airplane.id}>
             {airplane.name}
-            <button type="submit" onClick={() => handleDelete(airplane.id)}>Delete</button>
+            <button className="loginbtn " type="submit" onClick={() => handleDelete(airplane.id)}>Delete</button>
           </li>
         ))}
       </ul>
