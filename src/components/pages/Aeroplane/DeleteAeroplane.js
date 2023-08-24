@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { deleteAeroplane, selectAirplanes } from '../../../store/aeroplane/aeroplane';
 
 const DeleteAeroplane = () => {
@@ -23,7 +23,11 @@ const DeleteAeroplane = () => {
             {' '}
             - $
             {plane.price}
-            <button onClick={() => handleDeleteAeroplane(plane.id)}>Delete</button>
+            <input
+              type="button"
+              placeholder="Delete"
+              onClick={() => handleDeleteAeroplane(plane.id)}
+            />
           </li>
         ))}
       </ul>
