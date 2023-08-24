@@ -50,6 +50,11 @@ export default function ProductDescription() {
                 {' '}
                 <p className="vehicle-info-data">{element.price}</p>
               </li>
+              <li>
+                <p>Booking Price:</p>
+                {' '}
+                <p className="vehicle-info-data">{element.booking_price}</p>
+              </li>
               <Link to={`/aeroplanes/${id}/reserve`} className="reserve-vehicle">
                 <p>Reserve</p>
                 {' '}
