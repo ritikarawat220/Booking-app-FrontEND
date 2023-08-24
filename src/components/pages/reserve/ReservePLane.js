@@ -1,23 +1,16 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
-import { useDispatch } from 'react-redux';
+import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { postReservation } from '../../../store/reservations/reservationSlice';
 import './ReservePlane.css';
 
-const ReservePLane = () => {
+const ReservePlane = () => {
+  const airplanes = useSelector((state) => state.productDetails.productDetails);
   const navigate = useNavigate();
-  // const {
-  //   reservation: { isLoading },
-  // } = useSelector((store) => store.reservations);
-  // const user = JSON.parse(localStorage.getItem("user"));
   const dispatch = useDispatch();
-  const [name, setName] = useState('');
   const [city, setCity] = useState('');
-  const [reservationDate, setReservationDate] = useState('');
-  const [returndate, setReturndate] = useState('');
   const [selectedAeroplaneId, setSelectedAeroplaneId] = useState('');
-
-  const [error, setError] = useState('');
+  const formRef = useRef();
 
   const cities = [
     'New York',
@@ -29,52 +22,38 @@ const ReservePLane = () => {
     'Dallas',
   ];
 
-  const handleReservation = async (event) => {
+  const handleReservation = (event) => {
     event.preventDefault();
-    const today = new Date();
-    const selectedReservationDate = new Date(reservationDate);
-    if (selectedReservationDate < today) {
-      setError('Please select a date in the future');
-      return;
-    }
-    const selectedReturnDate = new Date(returndate);
-    if (
-      selectedReturnDate <= today
-      || selectedReturnDate <= selectedReservationDate
-    ) {
-      setError('Please select a return date after the reservation date');
-      return;
-    }
-    setError('');
+    const formData = new FormData(formRef.current);
+    const form = Object.fromEntries(formData);
+
     const reservationData = {
-      name,
-      city,
-      reservationDate,
-      returnningDate: returndate,
-      aeroplaneId: selectedAeroplaneId,
+      id: selectedAeroplaneId,
+      reservation: {
+        city,
+        reservation_date: form.reservation_date,
+        returning_date: form.returning_date,
+      },
     };
-    await dispatch(postReservation(reservationData));
-    navigate('/my-reservations');
+    dispatch(postReservation(reservationData)).then((result) => {
+      if (result && result.error) return;
+      navigate('/my-reservations');
+    });
+    event.target.reset();
   };
+
   return (
     <>
-      <section className="reservattionSection">
+      <section className="reservationSection">
         <h2 className="reservationH">Reserve Aeroplane</h2>
         <p className="reservationP">
-          Please fill the form to reserve your Aeroplane
+          Please fill out the form to reserve your Aeroplane
         </p>
-        <form onSubmit={handleReservation} className="formContainer">
-          {error && <p className="error">{error}</p>}
-          <label htmlFor="name" className="labelText">
-            Name:
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </label>
-          <br />
+        <form
+          onSubmit={handleReservation}
+          ref={formRef}
+          className="formContainer"
+        >
           <label htmlFor="city" className="labelText">
             Select Your City:
             <select
@@ -92,23 +71,13 @@ const ReservePLane = () => {
           </label>
           <br />
           <label htmlFor="date" className="labelText">
-            Rervation Date:
-            <input
-              type="date"
-              id="date"
-              value={reservationDate}
-              onChange={(e) => setReservationDate(e.target.value)}
-            />
+            Reservation Date:
+            <input type="date" id="date" name="reservation_date" />
           </label>
           <br />
-          <label htmlFor="returndate" className="labelText">
+          <label htmlFor="returnDate" className="labelText">
             Return Date:
-            <input
-              type="date"
-              id="returndate"
-              value={returndate}
-              onChange={(e) => setReturndate(e.target.value)}
-            />
+            <input type="date" id="returnDate" name="returning_date" />
           </label>
           <br />
           <label htmlFor="aeroplane" className="labelText">
@@ -118,9 +87,12 @@ const ReservePLane = () => {
               value={selectedAeroplaneId}
               onChange={(e) => setSelectedAeroplaneId(e.target.value)}
             >
-              <option value="">Select Aeroplane</option>
-              <option value="A320">A320</option>
-              <option value="A380">A380</option>
+              <option defaultValue="Select Aeroplane">Select Aeroplane</option>
+              {airplanes.map((airplane) => (
+                <option key={airplane.id} value={airplane.id}>
+                  {airplane.name}
+                </option>
+              ))}
             </select>
           </label>
           <br />
@@ -128,9 +100,10 @@ const ReservePLane = () => {
             <button type="submit" id="reservationBtn">
               Reserve
             </button>
-            <button type="submit" id="checkReservations">
+            {/* You can add functionality to the "Check My Reservations" button */}
+            {/* <button onClick={handleCheckReservations} id="checkReservations">
               Check My Reservations
-            </button>
+            </button> */}
           </div>
         </form>
       </section>
@@ -138,4 +111,4 @@ const ReservePLane = () => {
   );
 };
 
-export default ReservePLane;
+export default ReservePlane;

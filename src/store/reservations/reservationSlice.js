@@ -1,105 +1,56 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const baseUrl = "https://aeroplane-find.onrender.com";
+const baseUrl = 'https://aeroplane-find.onrender.com';
 // const baseUrl = 'http://localhost:4000';
 
 export const postReservation = createAsyncThunk(
-  "aeroplane/reservations",
+  'aeroplane/reservations',
   async (reserve) => {
+    const authToken = localStorage.getItem('authToken');
     try {
-      // const authToken = localStorage.getItem("authToken");
-      const authToken =
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlNzdiMjM3Yi1hNWZjLTRlYjMtODdjOC04Y2U0Njg4MmFmNzEiLCJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjkyODY1MjA3LCJleHAiOjE2OTI4NjcwMDd9.K_uaPJazLclkjgOy1b6fkz6Hc--9wrahFcybbNCUVLc";
-      const response = await fetch(
-        `${baseUrl}/aeroplanes/${reserve.id}/reservations`,
+      const response = await axios.post(
+        `${baseUrl}/aeroplanes/${reserve.id}/reservations/create`,
+        reserve,
         {
-          method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
             Authorization: authToken,
           },
-          body: JSON.stringify({
-            user_id: reserve.id,
-            city: reserve.city,
-            reservation_date: reserve.reservationDate,
-            returning_date: reserve.returningDate,
-            aeroplanes_id: reserve.aeroplanesId, // Corrected typo here
-          }),
-        }
+        },
       );
-
-      if (!response.ok) {
-        throw new Error("Failed to post reservation");
-      }
-
-      const data = await response.json();
-      return data;
+      return response.data;
     } catch (error) {
-      throw error; // Rethrow the error for further handling in Redux
+      if (error && error.response && error.response.data.error) {
+        throw new Error(error.response.data.error);
+      } else {
+        throw new Error('Failed to post reservation');
+      }
     }
-  }
+  },
 );
 
 export const getReservations = createAsyncThunk(
-  "aeroplanes/reservations",
+  'aeroplanes/reservations',
   async () => {
+    const authToken = localStorage.getItem('authToken');
     try {
-      const authToken = localStorage.getItem("authToken");
-      const user = JSON.parse(localStorage.getItem("user"));
-      const requestOptions = {
-        method: "GET",
+      const resp = await axios.get(`${baseUrl}/reservations`, {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: authToken,
         },
-      };
-
-      const resp = await fetch(
-        `${baseUrl}/users/${user.id}/reservations`,
-        requestOptions
-      );
-
-      if (!resp.ok) {
-        throw new Error("Failed to get reservations");
-      }
-
-      const data = await resp.json();
-      return data;
+      });
+      console.log(resp);
+      return resp.data;
     } catch (error) {
-      throw error;
-    }
-  }
-);
-
-export const cancelReservations = createAsyncThunk(
-  "reservations/cancel",
-  async (id) => {
-    try {
-      const authToken = localStorage.getItem("authToken");
-      const user = JSON.parse(localStorage.getItem("user"));
-      const requestOptions = {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: authToken,
-        },
-      };
-
-      const resp = await fetch(
-        `${baseUrl}/users/${user.id}/reservations/${id}`,
-        requestOptions
-      );
-
-      if (!resp.ok) {
-        throw new Error("Failed to cancel reservation");
+      if (error && error.resp && error.resp.data.error) {
+        throw new Error(error.resp.data.error);
+      } else {
+        throw new Error('Failed to get reservations');
       }
-
-      const data = await resp.json();
-      return data;
-    } catch (error) {
-      throw error;
     }
-  }
+  },
 );
 
 const initialState = {
@@ -109,9 +60,9 @@ const initialState = {
 };
 
 const reservationSlice = createSlice({
-  name: "reservation",
+  name: 'reservation',
   initialState,
-  reducers: {}, // Add any other reducers you might need
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(postReservation.pending, (state) => ({
       ...state,
@@ -137,20 +88,6 @@ const reservationSlice = createSlice({
       reservations: payload,
     }));
     builder.addCase(getReservations.rejected, (state, action) => ({
-      ...state,
-      isLoading: false,
-      error: action.error.message,
-    }));
-    builder.addCase(cancelReservations.pending, (state) => ({
-      ...state,
-      isLoading: true,
-    }));
-    builder.addCase(cancelReservations.fulfilled, (state, { payload }) => ({
-      ...state,
-      isLoading: false,
-      reservations: payload,
-    }));
-    builder.addCase(cancelReservations.rejected, (state, action) => ({
       ...state,
       isLoading: false,
       error: action.error.message,

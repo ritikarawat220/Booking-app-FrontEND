@@ -50,7 +50,7 @@ const SideBar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/shop" className="nav-link">
+              <NavLink to="/my-reservations" className="nav-link">
                 <FontAwesomeIcon icon={faCartFlatbed} className="navIcon" />
                 <span className="navText">MY RESERVATIONS</span>
               </NavLink>
