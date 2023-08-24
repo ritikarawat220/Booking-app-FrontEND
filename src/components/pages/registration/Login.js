@@ -17,34 +17,44 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      {loading && <p>Loading...</p>}
-      {error && (
-      <p>
-        Error:
-        {error}
-      </p>
-      )}
-      {token ? (
-        <p>You are logged in!</p>
-      ) : (
-        <>
-          <input
-            type="text"
-            placeholder="Username"
-            value={credentials.email}
-            onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={credentials.password}
-            onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-          />
-          <button type="button" onClick={handleLogin}>Login</button>
-        </>
-      )}
+    <div className="login">
+      <div className="login_sub">
+        <h2 className="head2">Login</h2>
+        {loading && <p>Loading...</p>}
+        {error && (
+        <p>
+          Error:
+          {error}
+        </p>
+        )}
+        {token ? (
+          <p>You are logged in!</p>
+        ) : (
+          <div>
+            <input
+              className="login_input"
+              type="text"
+              placeholder="Username"
+              value={credentials.email}
+              onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
+            />
+            <br />
+            <br />
+            <input
+              className="login_input"
+              type="password"
+              placeholder="Password"
+              value={credentials.password}
+              onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+            />
+            <br />
+            <br />
+            <button className="loginbtn" type="button" onClick={handleLogin}>Login</button>
+
+          </div>
+        )}
+      </div>
+
     </div>
   );
 };
