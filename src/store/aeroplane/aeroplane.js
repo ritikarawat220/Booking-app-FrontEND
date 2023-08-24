@@ -14,7 +14,6 @@ const getTokenFromLocalStorage = () => localStorage.getItem('authToken');
 export const addAeroplane = createAsyncThunk('aeroplanes/addAeroplane', async (aeroplaneData, { rejectWithValue }) => {
   try {
     const authToken = localStorage.getItem('authToken');
-    console.log('token in aeroplane slice', authToken);
     const response = await fetch(`${API_BASE_URL}/aeroplanes/create`, {
       method: 'POST',
       headers: {
@@ -30,7 +29,7 @@ export const addAeroplane = createAsyncThunk('aeroplanes/addAeroplane', async (a
     }
 
     const newData = await response.json();
-    console.log('data aeplane', newData);
+
     return newData;
   } catch (error) {
     return rejectWithValue(error.message);
@@ -58,14 +57,10 @@ export const deleteAeroplane = createAsyncThunk('aeroplanes/deleteAeroplane', as
 });
 
 export const selectAirplanes = (state) => state.aeroplane.airplanes;
-console.log(selectAirplanes);
 
 export const selectAeroplanes = createSelector(
   [selectAirplanes],
-  (airplanes) => {
-    console.log('selectAeroplanes called with airplanes:', airplanes);
-    return airplanes;
-  },
+  (airplanes) => airplanes,
 );
 
 const aeroplaneSlice = createSlice({
