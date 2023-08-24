@@ -4,6 +4,13 @@
 
 .mainSection {
   width: 100%;
+  margin-left: 200px;
+}
+
+@media only screen and (max-width: 768px) {
+  .mainSection {
+    margin-left: 70px;
+  }
 }
 
 .login {
@@ -84,7 +91,6 @@
 
 .aeroDel {
   background: green;
-
 }
 
 @media (min-width: 767px) {

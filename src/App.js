@@ -1,12 +1,10 @@
-import React from 'react';
-import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from './components/SideBar/SideBar';
 import Home from './components/pages/Home/Home';
 import ReservePLane from './components/pages/reserve/ReservePLane';
+import MyReservations from './components/pages/my_reservation/MyReservations';
 import ProductDescription from './components/pages/Home/ProductDescription';
-import Shop from './components/pages/shop/Shop';
 import NotFound from './components/pages/404/NotFound';
 import Login from './components/pages/registration/Login';
 import Signup from './components/pages/registration/Signup';
@@ -34,7 +32,7 @@ function App() {
             <Route path="/aeroplanes/create" element={<AddAeroplane />} />
             <Route path="/deleteaeroplane" element={<DeleteAeroplane />} />
             <Route path="/reserve" element={<ReservePLane />} />
-            <Route path="/shop" element={<Shop />} />
+            <Route path="/my-reservations" element={<MyReservations />} />
             <Route
               path="/test-drive"
               element={<h1>This is the TEST DRIVE page</h1>}
