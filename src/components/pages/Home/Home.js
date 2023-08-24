@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../Loader/Loader';
 import { fetchProductDetails } from '../../../store/productDetails/productDetailsSlice';
 
 const Airplane = ({ model, description, image }) => (
@@ -25,11 +26,20 @@ Airplane.propTypes = {
 
 const Home = () => {
   const navigate = useNavigate();
-  const { products } = useSelector((store) => store.productDetails);
+  const { products, isLoading } = useSelector((store) => store.productDetails);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchProductDetails());
   }, [dispatch]);
+
+  if (isLoading) {
+    return (
+      <section className="homepage">
+        <Loader />
+      </section>
+    );
+  }
 
   return (
     <section className="homepage">
