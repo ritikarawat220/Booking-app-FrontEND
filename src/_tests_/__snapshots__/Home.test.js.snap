@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<section
+  className="homepage"
+>
+  <div
+    className="hero"
+  >
+    <h1
+      className="hero_header"
+    >
+      LATEST MODELS
+    </h1>
+    <p
+      className="hero_text"
+    >
+      Please select a Model
+    </p>
+    <div
+      className="vehicle-container"
+    />
+  </div>
+</section>
+`;

@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="detail-container"
+>
+  <div
+    className="details-image-container"
+  >
+    <img
+      alt=""
+      src=""
+    />
+  </div>
+  <div
+    className="details-content-container"
+  >
+    <h3 />
+    <ul
+      className="vehicle-info-details"
+    >
+      <li>
+        <p>
+          Name:
+        </p>
+        <p
+          className="vehicle-info-data"
+        />
+      </li>
+      <li>
+        <p>
+          Model:
+        </p>
+        <p
+          className="vehicle-info-data"
+        />
+      </li>
+      <li>
+        <p>
+          Price:
+        </p>
+        <p
+          className="vehicle-info-data"
+        >
+          0
+        </p>
+      </li>
+      <li>
+        <p>
+          Booking Price:
+        </p>
+        <p
+          className="vehicle-info-data"
+        >
+          0
+        </p>
+      </li>
+      <li>
+        <a
+          className="reserve-vehicle"
+          href="/aeroplanes/undefined/reserve"
+          onClick={[Function]}
+        >
+          <p>
+            Reserve
+          </p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
