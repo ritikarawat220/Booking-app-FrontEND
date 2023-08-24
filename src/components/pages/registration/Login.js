@@ -10,6 +10,7 @@ const Login = () => {
 
   const handleLogin = () => {
     dispatch(loginAsync(credentials));
+    window.location.href = '/';
   };
 
   return (
@@ -38,11 +39,7 @@ const Login = () => {
             value={credentials.password}
             onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
           />
-          <input
-            type="button"
-            placeholder="Login"
-            onClick={handleLogin}
-          />
+          <button type="button" onClick={handleLogin}>Login</button>
         </>
       )}
     </div>

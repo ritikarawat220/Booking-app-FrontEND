@@ -5,13 +5,8 @@ import store from './store/store';
 import './index.css';
 import App from './App';
 
-// // Check if user data is in localStorage
-// const storedUser = JSON.parse(localStorage.getItem('user'));
-
-// // Dispatch an action to set the user in the Redux store
-// if (storedUser) {
-//   store.dispatch({ type: 'login/loginAsync.fulfilled', payload: storedUser });
-// }
+console.log(localStorage.getItem('user'));
+console.log(localStorage.getItem('authToken'));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
