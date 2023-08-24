@@ -10,7 +10,7 @@ const initialState = {
 
 export const fetchProductDetails = createAsyncThunk('Products/fetchProductDetails', async () => {
   try {
-    const response = await axios.get(`${url}api/products`, {
+    const response = await axios.get(`${url}/products`, {
       headers: {
         Authorization: localStorage.getItem('authToken'),
       },
@@ -38,7 +38,7 @@ export const deleteProduct = createAsyncThunk('Products/deleteProduct', async (i
 });
 
 export const productDetailsSlice = createSlice({
-  name: 'productDetails',
+  name: 'Products',
   initialState,
 
   extraReducers: (builder) => {
@@ -47,11 +47,14 @@ export const productDetailsSlice = createSlice({
         ...state,
         isLoading: true,
       }))
-      .addCase(fetchProductDetails.fulfilled, (state, { payload }) => ({
-        ...state,
-        isLoading: false,
-        Products: payload,
-      }))
+      .addCase(fetchProductDetails.fulfilled, (state, { payload }) => {
+        console.log(payload);
+        return {
+          ...state,
+          isLoading: false,
+          Products: payload,
+        };
+      })
       .addCase(fetchProductDetails.rejected, (state) => ({
         ...state,
         isLoading: false,

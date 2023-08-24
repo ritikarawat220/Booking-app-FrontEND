@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const url = 'http://your-api-base-url.com';
+const url = 'https://aeroplane-find.onrender.com/';
 const initialState = {
   productDescription: [],
   isLoading: false,

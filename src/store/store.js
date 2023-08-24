@@ -12,7 +12,6 @@ const store = configureStore({
     login: loginReducer,
     signup: signupReducer,
     aeroplane: aeroplaneReucer,
-    productDetails: productDetailsReducer,
   },
 });
 
