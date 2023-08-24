@@ -23,7 +23,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="signup" element={<Signup />} />
 
-            <Route path="addaeroplane" element={<AddAeroplane />} />
+            <Route path="aeroplanes/create" element={<AddAeroplane />} />
             <Route path="deleteaeroplane" element={<DeleteAeroplane />} />
             <Route
               path="/lifestyle"

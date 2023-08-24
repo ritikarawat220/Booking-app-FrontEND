@@ -31,9 +31,11 @@ export const loginAsync = createAsyncThunk('login/loginAsync', async (credential
   const authToken = res.headers.get('Authorization');
   const { user } = data;
 
+  console.log(user);
+
   if (authToken) {
-    localStorage.setItem('user', user);
     localStorage.setItem('authToken', authToken);
+    localStorage.setItem('user', JSON.stringify(user));
   }
   return { data };
 });
@@ -41,7 +43,20 @@ export const loginAsync = createAsyncThunk('login/loginAsync', async (credential
 const loginSlice = createSlice({
   name: 'login',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      const newState = {
+        ...state,
+        user: null,
+        token: null,
+      };
+
+      localStorage.removeItem('user');
+      localStorage.removeItem('authToken');
+
+      return newState;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(loginAsync.pending, (state) => (
@@ -53,4 +68,5 @@ const loginSlice = createSlice({
   },
 });
 
+export const { logout } = loginSlice.actions;
 export default loginSlice.reducer;
