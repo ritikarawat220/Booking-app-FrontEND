@@ -1,136 +1,140 @@
 .detail-container {
-    width: calc(100% - 14rem);
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    /* border: 2px dashed; */
-    display: flex;
-    flex-wrap: wrap;
-    user-select: none;
-  }
-  
-  .details-image-container {
-    /* border: 2px dashed; */
-    flex: 1 1 70%;
-  }
-  
-  .detail-container img {
+  width: calc(100% - 14rem);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  /* border: 2px dashed; */
+  display: flex;
+  flex-wrap: wrap;
+  user-select: none;
+}
+
+.details-image-container {
+  /* border: 2px dashed; */
+  flex: 1 1 70%;
+}
+
+.detail-container img {
+  width: 85%;
+  position: relative;
+  top: 5rem;
+}
+
+.details-content-container {
+  /* border: 2px dashed; */
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 2rem;
+}
+
+.details-content-container > h3 {
+  text-align: end;
+  margin-top: 5rem;
+}
+
+.details-description {
+  font-size: 0.6rem;
+  margin-left: auto;
+  text-align: end;
+}
+
+.vehicle-info-details {
+  list-style-type: none;
+
+  /* border: 2px dashed; */
+}
+
+.vehicle-info-details li {
+  /* border: 2px dashed; */
+  padding: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reserve-vehicle p {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.vehicle-info-details li p {
+  margin: 0;
+  padding: 0;
+}
+
+.vehicle-info-details li:nth-child(odd) {
+  background-color: #d4d4d4;
+}
+
+.vehicle-info-details li:nth-child(even) {
+  background-color: #f6f6f6;
+}
+
+.vehicle-info-data {
+  font-weight: 500;
+}
+
+.reserve-vehicle {
+  border-radius: 3.6rem;
+  position: relative;
+  top: 10rem;
+  width: 10rem;
+  background-color: #6fb900;
+  font-weight: 500;
+
+  /* padding: 0; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.8rem;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+
+.reserve-vehicle:hover {
+  background-color: #5e9d00;
+}
+
+.arrow-right-reserve {
+  font-size: 1.2rem;
+
+  /* stroke-width: 0.05rem; */
+}
+
+@media (max-width: 768px) {
+  .detail-container {
     width: 100%;
-    position: relative;
-    top: 5rem;
-    left: -4rem;
   }
-  
-  .details-content-container {
-    /* border: 2px dashed; */
-    flex: 1 1 30%;
-    display: flex;
-    flex-direction: column;
-    padding: 5rem 2rem;
-  }
-  
-  .details-content-container > h3 {
-    text-align: end;
+
+  .details-image-container {
+    width: 100%;
     margin-top: 5rem;
   }
-  
-  .details-description {
-    font-size: 0.6rem;
-    margin-left: auto;
-    text-align: end;
-  }
-  
-  .vehicle-info-details {
-    list-style-type: none;
-    /* border: 2px dashed; */
-  }
-  
-  .vehicle-info-details li {
-    /* border: 2px dashed; */
-    padding: 0.6rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .vehicle-info-details li p {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .vehicle-info-details li:nth-child(odd) {
-    background-color: #d4d4d4;
-  }
-  
-  .vehicle-info-details li:nth-child(even) {
-    background-color: #f6f6f6;
-  }
-  
-  .vehicle-info-data {
-    font-weight: 500;
-  }
-  
-  .reserve-vehicle {
-    border-radius: 3.6rem;
+
+  .detail-container img {
     position: relative;
-    top: 10rem;
-    width: 10rem;
-    background-color: #6fb900;
-    font-weight: 500;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.8rem 1.8rem;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.5s ease;
+    top: 0;
+    left: 0;
   }
-  
-  .reserve-vehicle:hover {
-    background-color: #5e9d00;
+
+  .details-content-container {
+    padding: 0 2rem;
+    gap: 1rem;
   }
-  
-  .reserve-vehicle p {
-    margin: 0;
-    font-weight: 500;
-    font-size: 1.1rem;
+
+  .details-content-container > h3 {
+    margin-top: 1rem;
   }
-  
-  .arrow-right-reserve {
-    font-size: 1.2rem;
-    /* stroke-width: 0.05rem; */
+
+  .reserve-vehicle {
+    position: relative;
+    left: 0;
+    top: 1.6rem;
   }
-  
-  @media (max-width: 768px) {
-    .detail-container {
-      width: 100%;
-    }
-  
-    .details-image-container {
-      width: 100%;
-      margin-top: 5rem;
-    }
-  
-    .detail-container img {
-      position: relative;
-      top: 0;
-      left: 0;
-    }
-  
-    .details-content-container {
-      padding: 0 2rem;
-      gap: 1rem;
-    }
-  
-    .details-content-container > h3 {
-      margin-top: 1rem;
-    }
-  
-    .reserve-vehicle {
-      position: relative;
-      left: 0;
-      top: 1.6rem;
-    }
-  }
+}

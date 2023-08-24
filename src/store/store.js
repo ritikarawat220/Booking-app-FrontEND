@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import loginReducer from './authentication/login';
 import signupReducer from './authentication/signup';
 import aeroplaneReucer from './aeroplane/aeroplane';
-import aeroplaneslistReducer from './aeroplaneList/aeroplaneListSlice';
+import aeroplanesListReducer from './aeroplaneList/aeroplaneListSlice';
 import selectedAirplaneSliceReducer from './aeroplaneList/selectedAirplaneSlice';
 import aeroplanelistReducer from './aeroplane/aeroplanelist';
 
@@ -12,7 +12,7 @@ const store = configureStore({
     login: loginReducer,
     signup: signupReducer,
     aeroplane: aeroplaneReucer,
-    aeroplaneslist: aeroplaneslistReducer,
+    aeroplanesList: aeroplanesListReducer,
     selectedAirplane: selectedAirplaneSliceReducer,
     aeroplaneslist: aeroplanelistReducer,
   },
