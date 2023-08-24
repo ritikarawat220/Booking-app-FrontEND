@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../store/store';
-import SideBar from '../components/SideBar/SideBar'
+import SideBar from '../components/SideBar/SideBar';
 
 it('renders correctly', () => {
   const tree = renderer

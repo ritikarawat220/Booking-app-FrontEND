@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../store/store';
-import ReservePLan from '../components/pages/reserve/ReservePLane'
+import ReservePLan from '../components/pages/reserve/ReservePLane';
 
 it('renders correctly', () => {
   const tree = renderer

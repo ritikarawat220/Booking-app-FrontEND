@@ -6,15 +6,14 @@ import store from '../store/store';
 import Aeroplanes from '../components/pages/Aeroplane/Aeroplanes';
 
 it('renders correctly', () => {
-    const tree = renderer
-      .create(
-        <Provider store={store}>
-          <Router>
+  const tree = renderer
+    .create(
+      <Provider store={store}>
+        <Router>
           <Aeroplanes />
-          </Router>
-        </Provider>,
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-  
+        </Router>
+      </Provider>,
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
