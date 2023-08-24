@@ -1,6 +1,10 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import {
+  BrowserRouter, Route, Routes, Outlet,
+} from 'react-router-dom';
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SideBar from './components/SideBar/SideBar';
+import Layout from './components/Layout';
 import Home from './components/pages/Home/Home';
 import ReservePLane from './components/pages/reserve/ReservePLane';
 import MyReservations from './components/pages/my_reservation/MyReservations';
@@ -11,36 +15,38 @@ import Signup from './components/pages/registration/Signup';
 import AddAeroplane from './components/pages/Aeroplane/AddAeroplane';
 import DeleteAeroplane from './components/pages/Aeroplane/DeleteAeroplane';
 import MainComponent from './components/pages/Aeroplane/Aeroplanes';
+import Protected from './components/Protected';
 
 function App() {
   return (
     <BrowserRouter>
-      <section className="d-flex">
-        <div className="col-auto">
-          <SideBar />
-        </div>
-        <div className="mainSection">
-          <Routes>
-            <Route path="/aeroplanes/:id" element={<ProductDescription />} />
-
-            <Route exact path="/" element={<Home />} />
+      <Routes>
+        <Route element={<Protected />}>
+          <Route
+            path="/"
+            element={<Layout showSidebar><Outlet /></Layout>}
+          >
+            <Route index element={<Home />} />
+            <Route path="aeroplanes" element={<MainComponent />} />
             <Route path="/reserve" element={<ReservePLane />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/aeroplanes" element={<MainComponent />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/aeroplanes/create" element={<AddAeroplane />} />
-            <Route path="/deleteaeroplane" element={<DeleteAeroplane />} />
+            <Route path="aeroplanes/create" element={<AddAeroplane />} />
+            <Route path="deleteaeroplane" element={<DeleteAeroplane />} />
             <Route path="/reserve" element={<ReservePLane />} />
             <Route path="/my-reservations" element={<MyReservations />} />
-            <Route
-              path="/test-drive"
-              element={<h1>This is the TEST DRIVE page</h1>}
-            />
+            <Route path="/test-drive" element={<h1>This is the TEST DRIVE page</h1>} />
+            <Route path="/aeroplanes/:id" element={<ProductDescription />} />
             <Route path="*" element={<NotFound />} />
-          </Routes>
-        </div>
-      </section>
+          </Route>
+        </Route>
+        <Route
+          path="/login"
+          element={<Layout showSidebar={false}><Login /></Layout>}
+        />
+        <Route
+          path="/signup"
+          element={<Layout showSidebar={false}><Signup /></Layout>}
+        />
+      </Routes>
     </BrowserRouter>
   );
 }

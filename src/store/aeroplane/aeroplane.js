@@ -29,7 +29,6 @@ export const addAeroplane = createAsyncThunk('aeroplanes/addAeroplane', async (a
     }
 
     const newData = await response.json();
-
     return newData;
   } catch (error) {
     return rejectWithValue(error.message);

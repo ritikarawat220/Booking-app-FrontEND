@@ -11,9 +11,10 @@ const Login = () => {
 
   const navigate = useNavigate();
   const handleLogin = () => {
-    dispatch(loginAsync(credentials));
-    navigate('/');
-    // window.location.href = '/';
+    dispatch(loginAsync(credentials)).then((result) => {
+      if (result && result.error) return;
+      navigate('/');
+    });
   };
 
   return (
