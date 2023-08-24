@@ -1,78 +1,49 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const baseUrl = 'https://aeroplane-find.onrender.com/';
+const url = 'https://aeroplane-find.onrender.com/';
+
+const initialState = {
+  products: [],
+  isLoading: false,
+  error: '',
+};
 
 export const fetchProductDetails = createAsyncThunk(
   'Products/fetchProductDetails',
   async () => {
-    const authToken = localStorage.getItem('authToken');
-    const requestOptions = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `${authToken}`,
-      },
-    };
-
-    const resp = await fetch(`${baseUrl}aeroplanes/`, requestOptions);
-    const data = await resp.json();
-    return data;
+    try {
+      const response = await axios.get(`${url}api/products`, {
+        headers: {
+          Authorization: localStorage.getItem('authToken'),
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return error.message;
+    }
   },
 );
 
-const initialState = {
-  products: [],
-  isLoading: true,
-  error: '',
-  aeroplaneSelected: false,
-};
-
 export const productDetailsSlice = createSlice({
-  name: 'aeroplanes',
+  name: 'Products',
   initialState,
-  reducers: {
-    selectAeroplane: (state, action) => {
-      const aeroplaneSelected = action.payload;
-      const updatedAeroplanes = state.aeroplanes.map((aeroplane) => {
-        if (aeroplane.id === action.payload.id) {
-          return { ...aeroplane, reserved: true };
-        }
-        return aeroplane;
-      });
-      return {
-        ...state,
-        aeroplanes: updatedAeroplanes,
-        aeroplaneSelected,
-      };
-    },
-
-    aeroplaneRemove: (state, { payload }) => {
-      const aeroplanesFiltered = state.aeroplanes.filter((aeroplane) => aeroplane.id !== payload);
-      return {
-        ...state,
-        aeroplanes: aeroplanesFiltered,
-      };
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProductDetails.pending, (state) => ({
-        ...state,
-        isLoading: true,
-      }))
-      .addCase(fetchProductDetails.fulfilled, (state, action) => ({
-        ...state,
-        aeroplanes: action.payload.map((aeroplane) => ({ ...aeroplane, reserved: false })),
-        isLoading: false,
-      }))
-
-      .addCase(fetchProductDetails.rejected, (state) => ({
-        ...state,
-        isLoading: false,
-        error: 'Something went wrong',
-      }));
+      .addCase(fetchProductDetails.pending, (state) => {
+        state.isLoading = true;
+        state.error = ''; // Clear any previous errors
+      })
+      .addCase(fetchProductDetails.fulfilled, (state, { payload }) => {
+        state.products = payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchProductDetails.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload; // Set the error message
+      });
   },
 });
 
-export const { selectAeroplane, aeroplaneRemove } = productDetailsSlice.actions;
 export default productDetailsSlice.reducer;
