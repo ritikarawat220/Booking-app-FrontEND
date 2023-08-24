@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+/* eslint-disable */ 
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';

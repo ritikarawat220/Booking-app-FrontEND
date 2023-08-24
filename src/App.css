@@ -5,3 +5,59 @@
 .mainSection {
   width: 100%;
 }
+
+.login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.aeroinput,
+.login_input {
+  border-radius: 5px;
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+}
+
+.login_sub {
+  width: 90%;
+  height: 50%;
+}
+
+.loginbtn {
+  background: #1c3348;
+  color: #f2efdcc3;
+  width: 90px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.aeroplaneCont {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  width: 70%;
+}
+
+.aerohead {
+  border-bottom: 2px solid  #1c3348;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 767px) {
+  /* Your responsive styles here */
+  .login_sub {
+    width: 50%;
+    height: 50%;
+  }
+}

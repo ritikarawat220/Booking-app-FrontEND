@@ -12,6 +12,7 @@ import Login from './components/pages/registration/Login';
 import Signup from './components/pages/registration/Signup';
 import AddAeroplane from './components/pages/Aeroplane/AddAeroplane';
 import DeleteAeroplane from './components/pages/Aeroplane/DeleteAeroplane';
+import MainComponent from './components/pages/Aeroplane/Aeroplanes';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route exact path="/" element={<Home />} />
             <Route path="/reserve" element={<ReservePLane />} />
             <Route path="/" element={<Home />} />
+            <Route path="/aeroplanes" element={<MainComponent />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/aeroplanes/create" element={<AddAeroplane />} />
