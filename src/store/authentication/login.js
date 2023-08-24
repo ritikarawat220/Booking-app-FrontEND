@@ -31,8 +31,6 @@ export const loginAsync = createAsyncThunk('login/loginAsync', async (credential
   const authToken = res.headers.get('Authorization');
   const { user } = data;
 
-  console.log(user);
-
   if (authToken) {
     localStorage.setItem('authToken', authToken);
     localStorage.setItem('user', JSON.stringify(user));
