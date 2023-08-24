@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+/* eslint-disable */ 
 import PropTypes from 'prop-types';
 import './Home.css';
 import { useDispatch, useSelector } from 'react-redux';

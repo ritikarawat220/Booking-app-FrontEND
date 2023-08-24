@@ -58,10 +58,14 @@ export const deleteAeroplane = createAsyncThunk('aeroplanes/deleteAeroplane', as
 });
 
 export const selectAirplanes = (state) => state.aeroplane.airplanes;
+console.log(selectAirplanes);
 
 export const selectAeroplanes = createSelector(
   [selectAirplanes],
-  (airplanes) => airplanes,
+  (airplanes) => {
+    console.log('selectAeroplanes called with airplanes:', airplanes);
+    return airplanes;
+  },
 );
 
 const aeroplaneSlice = createSlice({
@@ -77,21 +81,20 @@ const aeroplaneSlice = createSlice({
         loading: false,
         airplanes: [...state.airplanes, action.payload],
       }))
-      // .addCase(addAeroplane.fulfilled, (state, action) => (
-      //   { ...state, loading: false, airplanes: action.payload }))
       .addCase(addAeroplane.rejected, (state, action) => (
-        { ...state, loading: false, error: action.error.message }));
-    // .addCase(deleteAeroplane.pending, (state) => {
-    //   state.status = 'loading';
-    // })
-    // .addCase(deleteAeroplane.fulfilled, (state, action) => {
-    //   state.status = 'succeeded';
-    //   state.airplanes = state.airplanes.filter((plane) => plane.id !== action.payload.id);
-    // })
-    // .addCase(deleteAeroplane.rejected, (state, action) => {
-    //   state.status = 'failed';
-    //   state.error = action.payload;
-    // });
+        { ...state, loading: false, error: action.error.message }))
+      .addCase(deleteAeroplane.pending, (state) => (
+        { ...state, status: 'loading' }))
+      .addCase(deleteAeroplane.fulfilled, (state, action) => ({
+        ...state,
+        status: 'succeeded',
+        airplanes: state.airplanes.filter((plane) => plane.id !== action.payload.id),
+      }))
+      .addCase(deleteAeroplane.rejected, (state, action) => ({
+        ...state,
+        status: 'failed',
+        error: action.payload,
+      }));
   },
 });
 

@@ -53,6 +53,7 @@ const loginSlice = createSlice({
 
       localStorage.removeItem('user');
       localStorage.removeItem('authToken');
+      localStorage.removeItem('aeroplaneState');
 
       return newState;
     },
