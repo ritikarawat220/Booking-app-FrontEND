@@ -14,7 +14,6 @@ const getTokenFromLocalStorage = () => localStorage.getItem('authToken');
 export const addAeroplane = createAsyncThunk('aeroplanes/addAeroplane', async (aeroplaneData, { rejectWithValue }) => {
   try {
     const authToken = localStorage.getItem('authToken');
-    console.log('token in aeroplane slice', authToken);
     const response = await fetch(`${API_BASE_URL}/aeroplanes/create`, {
       method: 'POST',
       headers: {
@@ -30,7 +29,7 @@ export const addAeroplane = createAsyncThunk('aeroplanes/addAeroplane', async (a
     }
 
     const newData = await response.json();
-    console.log('data aeplane', newData);
+
     return newData;
   } catch (error) {
     return rejectWithValue(error.message);
@@ -77,21 +76,20 @@ const aeroplaneSlice = createSlice({
         loading: false,
         airplanes: [...state.airplanes, action.payload],
       }))
-      // .addCase(addAeroplane.fulfilled, (state, action) => (
-      //   { ...state, loading: false, airplanes: action.payload }))
       .addCase(addAeroplane.rejected, (state, action) => (
-        { ...state, loading: false, error: action.error.message }));
-    // .addCase(deleteAeroplane.pending, (state) => {
-    //   state.status = 'loading';
-    // })
-    // .addCase(deleteAeroplane.fulfilled, (state, action) => {
-    //   state.status = 'succeeded';
-    //   state.airplanes = state.airplanes.filter((plane) => plane.id !== action.payload.id);
-    // })
-    // .addCase(deleteAeroplane.rejected, (state, action) => {
-    //   state.status = 'failed';
-    //   state.error = action.payload;
-    // });
+        { ...state, loading: false, error: action.error.message }))
+      .addCase(deleteAeroplane.pending, (state) => (
+        { ...state, status: 'loading' }))
+      .addCase(deleteAeroplane.fulfilled, (state, action) => ({
+        ...state,
+        status: 'succeeded',
+        airplanes: state.airplanes.filter((plane) => plane.id !== action.payload.id),
+      }))
+      .addCase(deleteAeroplane.rejected, (state, action) => ({
+        ...state,
+        status: 'failed',
+        error: action.payload,
+      }));
   },
 });
 

@@ -21,6 +21,7 @@
     "react-router": "^6.15.0",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
+    "react-test-renderer": "^18.2.0",
     "redux": "^4.2.1",
     "web-vitals": "^2.1.4"
   },
@@ -63,5 +64,10 @@
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    }
   }
 }

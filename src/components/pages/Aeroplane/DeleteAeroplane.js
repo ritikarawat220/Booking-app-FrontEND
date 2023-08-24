@@ -11,7 +11,7 @@ const DeleteAeroplane = () => {
   };
 
   return (
-    <div>
+    <div className="aeroDel">
       <h2>Delete Aeroplane</h2>
       <ul>
         {airplanes.map((plane) => (

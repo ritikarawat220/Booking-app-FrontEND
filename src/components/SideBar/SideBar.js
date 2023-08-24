@@ -38,7 +38,7 @@ const SideBar = () => {
           <hr className="hrLine" />
           <ul className="nav flex-column">
             <li className="nav-item">
-              <NavLink to="/" className="nav-link">
+              <NavLink to="/aeroplanes/create" className="nav-link">
                 <FontAwesomeIcon icon={faPlaneUp} className="navIcon" />
                 <span className="navText">AIRPLANES</span>
               </NavLink>
