@@ -1,22 +1,25 @@
 import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
 
-const API_BASE_URL = 'http://your-api-base-url.com';
+const API_BASE_URL = 'https://aeroplane-find.onrender.com';
 
 const initialState = {
   airplanes: [],
   status: 'idle',
   error: null,
+  loading: false,
 };
 
-const getTokenFromLocalStorage = () => localStorage.getItem('token');
+const getTokenFromLocalStorage = () => localStorage.getItem('authToken');
 
 export const addAeroplane = createAsyncThunk('aeroplanes/addAeroplane', async (aeroplaneData, { rejectWithValue }) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/aeroplanes`, {
+    const authToken = localStorage.getItem('authToken');
+    console.log('token in aeroplane slice', authToken);
+    const response = await fetch(`${API_BASE_URL}/aeroplanes/create`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+        Authorization: `${authToken}`,
       },
       body: JSON.stringify(aeroplaneData),
     });
@@ -26,7 +29,9 @@ export const addAeroplane = createAsyncThunk('aeroplanes/addAeroplane', async (a
       return rejectWithValue(errorData);
     }
 
-    return response.json();
+    const newData = await response.json();
+    console.log('data aeplane', newData);
+    return newData;
   } catch (error) {
     return rejectWithValue(error.message);
   }
@@ -37,7 +42,7 @@ export const deleteAeroplane = createAsyncThunk('aeroplanes/deleteAeroplane', as
     const response = await fetch(`${API_BASE_URL}/aeroplanes/${aeroplaneId}`, {
       method: 'DELETE',
       headers: {
-        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+        Authorization: `${getTokenFromLocalStorage()}`,
       },
     });
 
@@ -65,28 +70,28 @@ const aeroplaneSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(addAeroplane.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(addAeroplane.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.airplanes.push(action.payload);
-      })
-      .addCase(addAeroplane.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.payload;
-      })
-      .addCase(deleteAeroplane.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(deleteAeroplane.fulfilled, (state, action) => {
-        state.status = 'succeeded';
-        state.airplanes = state.airplanes.filter((plane) => plane.id !== action.payload.id);
-      })
-      .addCase(deleteAeroplane.rejected, (state, action) => {
-        state.status = 'failed';
-        state.error = action.payload;
-      });
+      .addCase(addAeroplane.pending, (state) => (
+        { ...state, loading: true, error: null }))
+      .addCase(addAeroplane.fulfilled, (state, action) => ({
+        ...state,
+        loading: false,
+        airplanes: [...state.airplanes, action.payload],
+      }))
+      // .addCase(addAeroplane.fulfilled, (state, action) => (
+      //   { ...state, loading: false, airplanes: action.payload }))
+      .addCase(addAeroplane.rejected, (state, action) => (
+        { ...state, loading: false, error: action.error.message }));
+    // .addCase(deleteAeroplane.pending, (state) => {
+    //   state.status = 'loading';
+    // })
+    // .addCase(deleteAeroplane.fulfilled, (state, action) => {
+    //   state.status = 'succeeded';
+    //   state.airplanes = state.airplanes.filter((plane) => plane.id !== action.payload.id);
+    // })
+    // .addCase(deleteAeroplane.rejected, (state, action) => {
+    //   state.status = 'failed';
+    //   state.error = action.payload;
+    // });
   },
 });
 
