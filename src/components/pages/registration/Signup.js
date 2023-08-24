@@ -8,7 +8,9 @@ function Signup() {
     loading, error, user, token,
   } = useSelector((state) => state.signup);
 
-  const [userData, setUserData] = useState({ name: '', email: '', password: '' });
+  const [userData, setUserData] = useState({
+    name: '', email: '', password: '', password_confirmation: '',
+  });
 
   const handleSignup = () => {
     dispatch(signupAsync(userData));
@@ -49,6 +51,12 @@ function Signup() {
         placeholder="Password"
         value={userData.password}
         onChange={(e) => setUserData({ ...userData, password: e.target.value })}
+      />
+      <input
+        type="password"
+        placeholder="Password Confirmation"
+        value={userData.password_confirmation}
+        onChange={(e) => setUserData({ ...userData, password_confirmation: e.target.value })}
       />
       <input
         type="button"

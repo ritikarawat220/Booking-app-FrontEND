@@ -1,8 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
+<<<<<<<<< Temporary merge branch 1
 import productDetailsReducer from './productDetails/productDetailsSlice';
-import productDescriptionReducer from './productDescription/productDescriptionSlice';
+
+const store = configureStore({
+  reducer: {
+    productDetails: productDetailsReducer,
+=========
 import loginReducer from './authentication/login';
 import signupReducer from './authentication/signup';
+import productDetailsReducer from './productDetails/productDetailsSlice';
 
 const store = configureStore({
   reducer: {
@@ -10,7 +16,8 @@ const store = configureStore({
     productDescription: productDescriptionReducer,
     login: loginReducer,
     signup: signupReducer,
-  }
+>>>>>>>>> Temporary merge branch 2
+  },
 });
 
 export default store;
