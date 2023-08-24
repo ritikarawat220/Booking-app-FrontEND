@@ -82,6 +82,11 @@
   padding: 5px;
 }
 
+.aeroDel {
+  background: green;
+
+}
+
 @media (min-width: 767px) {
   /* Your responsive styles here */
   .login_sub {
