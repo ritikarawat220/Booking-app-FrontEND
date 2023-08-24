@@ -5,9 +5,9 @@ import './Home.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAirplanes } from '../../../store/aeroplaneList/aeroplaneListSlice';
 import { storeSelectedAirplane } from '../../../store/aeroplaneList/selectedAirplaneSlice';
-
+/* eslint-disable camelcase */
 const Airplane = ({
-  model, description, image, id,
+  model, description, image, id, name, price, booking_price,
 }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const Airplane = ({
   const handleClick = () => {
     // Store the selected airplane in Redux when clicked
     dispatch(storeSelectedAirplane({
-      model, description, image, id,
+      model, description, image, id, name, price, booking_price,
     }));
     navigate(`/aeroplanes/${id}`);
   };
@@ -54,6 +54,9 @@ Airplane.propTypes = {
   description: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  name: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+  booking_price: PropTypes.number.isRequired,
 };
 
 const Home = () => {
@@ -85,6 +88,9 @@ const Home = () => {
                 description={element.description}
                 image={element.image}
                 id={element.id}
+                name={element.name}
+                price={element.price}
+                booking_price={element.booking_price}
               />
             </div>
           ))}

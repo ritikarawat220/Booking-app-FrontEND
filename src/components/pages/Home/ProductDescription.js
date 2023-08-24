@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
-// import { TfiArrowCircleRight } from 'react-icons/tfi';
 import './ProductDescription.css';
 
 export default function ProductDescription() {
@@ -11,14 +10,10 @@ export default function ProductDescription() {
   return (
     <div className="detail-container">
       <div className="details-image-container">
-        <img src={selectedAirplane.image} alt={selectedAirplane.model} />
+        <img src={selectedAirplane.image} alt={selectedAirplane.image} />
       </div>
       <div className="details-content-container">
-        <h3>{selectedAirplane.model}</h3>
-
-        <div className="details-description">
-          <p>{selectedAirplane.description}</p>
-        </div>
+        <h3>{selectedAirplane.name}</h3>
 
         <ul className="vehicle-info-details">
           <li>
