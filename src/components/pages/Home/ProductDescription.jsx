@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { TfiArrowCircleRight } from 'react-icons/tfi';
 import { fetchProductDescription } from '../../../store/productDescription/productDescriptionSlice';
 import './ProductDescription.css';
@@ -38,23 +38,23 @@ export default function ProductDescription() {
               <li>
                 <p>Name:</p>
                 {' '}
-                <p className="vehicle-info-data">{element.engine}</p>
+                <p className="vehicle-info-data">{element.name}</p>
               </li>
               <li>
                 <p>Model:</p>
                 {' '}
-                <p className="vehicle-info-data">{element.mileage}</p>
+                <p className="vehicle-info-data">{element.model}</p>
               </li>
               <li>
                 <p>Price:</p>
                 {' '}
                 <p className="vehicle-info-data">{element.price}</p>
               </li>
-              <div className="reserve-vehicle">
+              <Link to={`/aeroplanes/${id}/reserve`} className="reserve-vehicle">
                 <p>Reserve</p>
                 {' '}
                 <TfiArrowCircleRight className="arrow-right-reserve" />
-              </div>
+              </Link>
             </ul>
           </div>
         </div>

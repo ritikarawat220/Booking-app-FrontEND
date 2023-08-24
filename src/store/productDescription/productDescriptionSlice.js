@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const url = 'http://your-api-base-url.com';
 const initialState = {
   productDescription: [],
   isLoading: false,
@@ -8,7 +9,7 @@ const initialState = {
 
 export const fetchProductDescription = createAsyncThunk('productDescription/fetchProductDescription', async (id) => {
   try {
-    const response = await axios.get(`http://localhost:4000/aeroplanes/${id}`);
+    const response = await axios.get(`${url}api/products/${id}`);
     return response.data;
   } catch (error) {
     return error.message;
