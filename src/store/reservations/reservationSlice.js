@@ -41,7 +41,6 @@ export const getReservations = createAsyncThunk(
           Authorization: authToken,
         },
       });
-      console.log(resp);
       return resp.data;
     } catch (error) {
       if (error && error.resp && error.resp.data.error) {
