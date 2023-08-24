@@ -8,7 +8,9 @@ function Signup() {
     loading, error, user, token,
   } = useSelector((state) => state.signup);
 
-  const [userData, setUserData] = useState({ name: '', email: '', password: '', password_confirmation: '', });
+  const [userData, setUserData] = useState({
+    name: '', email: '', password: '', password_confirmation: '',
+  });
 
   const handleSignup = () => {
     dispatch(signupAsync(userData));
