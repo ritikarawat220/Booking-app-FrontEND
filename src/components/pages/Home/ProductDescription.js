@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { TfiArrowCircleRight } from 'react-icons/tfi';
-import { fetchProductDescription } from '../../../store/productDescription/productDescriptionSlice';
+// import { fetchProductDescription } from '../../../store/productDescription/productDescriptionSlice';
 import './ProductDescription.css';
 
 export default function ProductDescription() {

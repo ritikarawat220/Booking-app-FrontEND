@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from './components/SideBar/SideBar';
 import Home from './components/pages/Home/Home';
 import ReservePLane from './components/pages/reserve/ReservePLane';
-import ProductDescription from './components/pages/Home/ProductDescription';
+// import ProductDescription from './components/pages/Home/ProductDescription';
 import Shop from './components/pages/shop/Shop';
 import NotFound from './components/pages/404/NotFound';
 import Login from './components/pages/registration/Login';
@@ -21,8 +21,7 @@ function App() {
         </div>
         <div className="mainSection">
           <Routes>
-            <Route exact path="/aeroplanes" element={<ProductDescription />} />
-            <Route exact path="aeroplanes/:id" element={<ProductDescription />} />
+
             <Route exact path="/" element={<Home />} />
             <Route path="/reserve" element={<ReservePLane />} />
             <Route path="/" element={<Home />} />
