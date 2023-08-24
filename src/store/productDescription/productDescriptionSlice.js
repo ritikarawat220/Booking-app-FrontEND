@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+// import axios from 'axios';
 
 const url = 'https://aeroplane-find.onrender.com/';
 const initialState = {
@@ -7,12 +7,29 @@ const initialState = {
   isLoading: false,
 };
 
-export const fetchProductDescription = createAsyncThunk('productDescription/fetchProductDescription', async (id) => {
+export const fetchProductDescription = createAsyncThunk('productDescription/fetchProductDescription', async (AeroplaneData, { rejectWithValue }) => {
   try {
-    const response = await axios.get(`${url}api/products/${id}`);
-    return response.data;
+    const authToken = localStorage.getItem('authToken');
+    console.log('token in aeroplane desc', authToken);
+    const response = await fetch(`${url}/aeroplanes/products`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `${authToken}`,
+      },
+      body: JSON.stringify(AeroplaneData),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      return rejectWithValue(errorData);
+    }
+
+    const newData = await response.json();
+    console.log('data aeroplane', newData);
+    return newData;
   } catch (error) {
-    return error.message;
+    return rejectWithValue(error.message);
   }
 });
 

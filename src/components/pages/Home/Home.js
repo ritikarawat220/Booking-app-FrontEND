@@ -25,7 +25,7 @@ Airplane.propTypes = {
 
 const Home = () => {
   const navigate = useNavigate();
-  const { productDetails } = useSelector((store) => store.productDetails);
+  const { products } = useSelector((store) => store.productDetails);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProductDetails());
@@ -38,8 +38,8 @@ const Home = () => {
 
         <p className="hero_text">Please select a Model</p>
         <div className="vehicle-container">
-          {productDetails ? (
-            productDetails.map((element) => (
+          {products ? (
+            products.map((element) => (
               <div
                 key={element.id}
                 onClick={() => navigate(`aeroplanes/${element.id}`)}

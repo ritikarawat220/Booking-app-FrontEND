@@ -7,17 +7,18 @@ import './ProductDescription.css';
 
 export default function ProductDescription() {
   const dispatch = useDispatch();
+
   const { id } = useParams();
+
   const { productDescription, isLoading } = useSelector((store) => store.productDescription);
 
   useEffect(() => {
     dispatch(fetchProductDescription(id));
-  }, [dispatch, id]);
+  }, [dispatch]);
 
   if (isLoading) {
     return <h3>Loading...</h3>;
   }
-
   return (
     <>
       {productDescription.map((element) => (
@@ -30,7 +31,8 @@ export default function ProductDescription() {
 
             <div className="details-description">
               <p>
-                {element.description ? `${element.description.slice(0, 100)}...` : ''}
+                {element.description.slice(0, 100)}
+                ...
               </p>
             </div>
 
@@ -52,7 +54,6 @@ export default function ProductDescription() {
               </li>
               <li>
                 <p>Booking Price:</p>
-                {' '}
                 <p className="vehicle-info-data">{element.booking_price}</p>
               </li>
               <Link to={`/aeroplanes/${id}/reserve`} className="reserve-vehicle">
