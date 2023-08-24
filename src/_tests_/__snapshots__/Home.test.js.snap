@@ -19,11 +19,7 @@ exports[`renders correctly 1`] = `
     </p>
     <div
       className="vehicle-container"
-    >
-      <p>
-        Loading...
-      </p>
-    </div>
+    />
   </div>
 </section>
 `;
