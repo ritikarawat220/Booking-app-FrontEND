@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { loginAsync } from '../../../store/authentication/login';
 
 const Login = () => {
@@ -8,8 +9,11 @@ const Login = () => {
 
   const [credentials, setCredentials] = useState({ email: '', password: '' });
 
+  const navigate = useNavigate();
   const handleLogin = () => {
     dispatch(loginAsync(credentials));
+    navigate('/');
+    // window.location.href = '/';
   };
 
   return (
@@ -38,11 +42,7 @@ const Login = () => {
             value={credentials.password}
             onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
           />
-          <input
-            type="button"
-            placeholder="Login"
-            onClick={handleLogin}
-          />
+          <button type="button" onClick={handleLogin}>Login</button>
         </>
       )}
     </div>

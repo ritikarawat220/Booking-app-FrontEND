@@ -5,6 +5,7 @@ const initialState = {
   error: null,
   user: null,
   token: null,
+  message: null,
 };
 
 export const loginAsync = createAsyncThunk('login/loginAsync', async (credentials) => {
@@ -28,11 +29,13 @@ export const loginAsync = createAsyncThunk('login/loginAsync', async (credential
 
   const data = await res.json();
   const authToken = res.headers.get('Authorization');
-  const user = data.data;
+  const { user } = data;
+
+  console.log(user);
 
   if (authToken) {
-    localStorage.setItem('user', JSON.stringify(user));
     localStorage.setItem('authToken', authToken);
+    localStorage.setItem('user', JSON.stringify(user));
   }
   return { data };
 });
@@ -40,16 +43,30 @@ export const loginAsync = createAsyncThunk('login/loginAsync', async (credential
 const loginSlice = createSlice({
   name: 'login',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state) => {
+      const newState = {
+        ...state,
+        user: null,
+        token: null,
+      };
+
+      localStorage.removeItem('user');
+      localStorage.removeItem('authToken');
+
+      return newState;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(loginAsync.pending, (state) => (
         { ...state, loading: true, error: null }))
       .addCase(loginAsync.fulfilled, (state, action) => (
-        { ...state, loading: false, token: action.payload.data }))
+        { ...state, loading: false, message: action.payload.data }))
       .addCase(loginAsync.rejected, (state, action) => (
         { ...state, loading: false, error: action.error.message }));
   },
 });
 
+export const { logout } = loginSlice.actions;
 export default loginSlice.reducer;

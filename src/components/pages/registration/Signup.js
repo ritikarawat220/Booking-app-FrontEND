@@ -58,11 +58,7 @@ function Signup() {
         value={userData.password_confirmation}
         onChange={(e) => setUserData({ ...userData, password_confirmation: e.target.value })}
       />
-      <input
-        type="button"
-        placeholder="Login"
-        onClick={handleSignup}
-      />
+      <button type="button" onClick={handleSignup}>Signup</button>
     </div>
   );
 }
