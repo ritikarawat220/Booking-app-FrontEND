@@ -5,10 +5,11 @@ const initialState = {
   error: null,
   user: null,
   token: null,
+  message: null,
 };
 
 export const loginAsync = createAsyncThunk('login/loginAsync', async (credentials) => {
-  const res = await fetch('http://127.0.0.1:4000/login', {
+  const res = await fetch('https://aeroplane-find.onrender.com/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -28,10 +29,10 @@ export const loginAsync = createAsyncThunk('login/loginAsync', async (credential
 
   const data = await res.json();
   const authToken = res.headers.get('Authorization');
-  const user = data.data;
+  const { user } = data;
 
   if (authToken) {
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user', user);
     localStorage.setItem('authToken', authToken);
   }
   return { data };
@@ -46,7 +47,7 @@ const loginSlice = createSlice({
       .addCase(loginAsync.pending, (state) => (
         { ...state, loading: true, error: null }))
       .addCase(loginAsync.fulfilled, (state, action) => (
-        { ...state, loading: false, token: action.payload.data }))
+        { ...state, loading: false, message: action.payload.data }))
       .addCase(loginAsync.rejected, (state, action) => (
         { ...state, loading: false, error: action.error.message }));
   },
