@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { loginAsync } from '../../../store/authentication/login';
 
 const Login = () => {
@@ -8,9 +9,11 @@ const Login = () => {
 
   const [credentials, setCredentials] = useState({ email: '', password: '' });
 
+  const navigate = useNavigate();
   const handleLogin = () => {
     dispatch(loginAsync(credentials));
-    window.location.href = '/';
+    navigate('/');
+    // window.location.href = '/';
   };
 
   return (
