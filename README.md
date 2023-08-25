@@ -1,70 +1,228 @@
-# Getting Started with Create React App
+<a name="readme-top"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
+</div>
 
-In the project directory, you can run:
 
-### `npm start`
+> # Aeroplane Reservation API
+<!-- 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Project Veiw Screenshots|
+|---------------------------------------|
+<div align="center"><img src="./app/assets/images/recipe-app.png" alt="screenshot" width="auto" height="auto"/></div>| 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-->
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 📗 Table of Contents
 
-### `npm run build`
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)  
+- [🚀 Video Presentation ](#video-project-presentation)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ (OPTIONAL)](#faq)
+- [📝 License](#license)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 📖 [Aeroplane Reservation API] <a name="about-project"></a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**[Aeroplane Reservation API]** is a rails API used to to reservae an aeroplane for purchase and uses JSON web token to authenticate user login, signup and logout.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Link for the:<a href="https://github.com/ritikarawat220/Booking-app-FrontEND"> Frontend repository </a>
 
-### `npm run eject`
+## 🛠 Built With <a name="built-with"></a>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Tech Stack <a name="tech-stack"></a>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- <summary>Server</summary>
+    <ul>
+      <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
+    </ul>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- <summary>Database</summary>
+   <ul>
+      <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+    </ul>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- <summary>Client</summary>
+   <ul>
+      <li><a href="https://react.dev/">React</a></li>
+    </ul>
 
-## Learn More
+### Key Features <a name="key-features"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Authentication: Signup, Login, Logout.
+- Create aeroplane
+- Reserve aeroplane for purchase.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-[] API Documentation
+- Check here API documentation <a href="http://127.0.0.1:4000/api-docs/index.html">Aeroplane resrvation API documentation</a>
 
-### Code Splitting
+-[] Kanban Board
+<ul>
+  <li>Check here <a href="https://github.com/users/ritikarawat220/projects/5">Kanbaan</a></li>
+  
+</ul>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Analyzing the Bundle Size
+## 🚀 Live Demo <a name="live-demo"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [Live Demo Link]( )
 
-### Making a Progressive Web App
+## Video demo <a name="live-demo"></a>  -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## 💻 Getting Started <a name="getting-started"></a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To get a local copy up and running, follow these steps:
 
-### Deployment
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+In order to run this project you need:
+  - npm install
 
-### `npm run build` fails to minify
+### Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Clone this repository to your desired folder:
+
+# Use the following Commands: Backend
+      (https://github.com/ritikarawat220/Booking-app-FrontEND)
+      cd Booking-app-BackEND
+
+# Link to hello-react-front-end:
+(https://github.com/ritikarawat220/Booking-app-FrontEND)
+ cd Booking-app-FrontEND
+
+
+### Install
+Inside the project directory, install the project's 
+
+## For backend
+ - bundle install
+
+ ## For frontend
+ - npm install
+ 
+ 
+### Usage
+
+## Backend
+Create the app's database
+ - rails db:create
+ - rails db:migrate
+ - Run `rails secret`.  Copy the key.
+ - Remove config/master.key and config/credentials.yml.enc if they exist.
+ - Run `EDITOR="code --wait" bin/rails credentials:edit`
+ - In the editor that opens, add this:  devise_jwt_secret_key: <the key you copied in step 1>
+ - Save the file and close the editor.  New master.key, credentials.yml.enc files will be generated, and the key will be stored in `Rails.application.credentials.devise_jwt_secret_key`.
+
+
+  rails server
+- http://127.0.0.1:4000/login
+
+## For Frontend
+  - npm install
+  - npm start
+
+### Run tests
+- Run the following script and style test:
+
+npm test
+      
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 👥 Authors <a name="authors"></a>
+
+👤 **Ritika Rawat**
+
+- GitHub: [ritikarawat220](https://github.com/ritikarawat220)
+- Twitter: [@ritikarawat22](https://twitter.com/Ritikarawat22)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/rawatritika/)
+
+  
+👤 **Frank Mugagga**
+
+- GitHub: [@githubhandle](https://www.github.com/FrankMugagga)
+- Twitter: [@twitterhandle](https://www.twitter.com/@mugagga_frank)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/frank-mugagga)
+
+👤 **Mudassir Nazir**
+
+- GitHub: [@Mudassir](https://github.com/Rana-Mudassir)
+- Facebook: [@Facebook](https://www.facebook.com/rana.mudasir.142)
+- LinkedIn: [@LinkedIn](https://www.linkedin.com/in/mudassir-nazir/)
+
+👤 Jean Jacques Buhendwa
+
+- GitHub: [@githubhandle]([https://www.github.com/FrankMugagga](https://github.com/jeanbuhendwa))
+
+
+
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **[Create Admin ]**
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🤝 Contributing <a name="contributing"></a>
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/ritikarawat220/Booking-app-BackEND/issues)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## ⭐️ Show your support <a name="support"></a>
+
+ 
+  If you like this project, give it a star and share it.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+- Microverse. 
+- Original design by Murat Korkmaz
+
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## ❓ FAQ (OPTIONAL) <a name="faq"></a>
+
+- **What are the benefits of choosing Ruby on Rails for building a web application?**
+
+  - It is pretty hard to find a programming language rich in tools for web development
+
+- **What are the best use cases for Ruby on Rails?**
+- Some of the major use cases of Ruby on Rails should include web applications development, e-commerce development, repositories, media streaming applications and software as a service application. 
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## 📝 License <a name="license"></a>
+
+This project is [MIT](./LICENSE) licensed.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
