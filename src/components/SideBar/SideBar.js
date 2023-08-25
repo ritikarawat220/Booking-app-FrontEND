@@ -56,7 +56,7 @@ const SideBar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/test-drive" className="nav-link">
+              <NavLink to="/aeroplanes" className="nav-link">
                 <FontAwesomeIcon icon={faTrash} className="navIcon" />
                 <span className="navText">DELETE AEROPLANE</span>
               </NavLink>

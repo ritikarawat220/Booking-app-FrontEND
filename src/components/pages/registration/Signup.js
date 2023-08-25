@@ -12,30 +12,40 @@ const Signup = () => {
     name: '', email: '', password: '', password_confirmation: '',
   });
 
+  const [signupError, setSignupError] = useState(null); // State for signup error
+
   const handleSignup = () => {
+    if (!userData.name || !userData.email || !userData.password || !userData.password_confirmation) {
+      // Set an error message if any of the fields are empty
+      setSignupError("Please fill in all fields.");
+      return;
+    }
+
     dispatch(signupAsync(userData));
-    window.location.href = '/login';
+    // Clear any previous signup errors
+    setSignupError(null);
   };
 
   return (
     <div className="login">
-
       <div className="login_sub">
-
         <h2 className="head2">Signup</h2>
         {loading && <p>Loading...</p>}
         {error && (
-        <p>
-          Error:
-          {error}
-        </p>
+          <p>
+            Error:
+            {error}
+          </p>
         )}
         {user && token && (
-        <p>
-          Signup successful. Welcome,
-          {user.name}
-          !
-        </p>
+          <p>
+            Signup successful. Welcome,
+            {user.name}
+            !
+          </p>
+        )}
+        {signupError && (
+          <p style={{ color: 'red' }}>{signupError}</p> // Display signup error
         )}
         <input
           className="login_input"

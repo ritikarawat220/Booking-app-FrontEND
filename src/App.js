@@ -27,7 +27,7 @@ function App() {
             element={<Layout showSidebar><Outlet /></Layout>}
           >
             <Route index element={<Home />} />
-            <Route path="aeroplanes" element={<MainComponent />} />
+            <Route path="/aeroplanes" element={<MainComponent />} />
             <Route path="/reserve" element={<ReservePLane />} />
             <Route path="aeroplanes/create" element={<AddAeroplane />} />
             <Route path="deleteaeroplane" element={<DeleteAeroplane />} />

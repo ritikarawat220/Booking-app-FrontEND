@@ -5,7 +5,7 @@ import { postReservation } from '../../../store/reservations/reservationSlice';
 import './ReservePlane.css';
 
 const ReservePlane = () => {
-  const airplanes = useSelector((state) => state.productDetails.productDetails);
+  const airplanes = useSelector((state) => state.aeroplaneslist.airplanes);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [city, setCity] = useState('');
