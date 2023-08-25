@@ -40,13 +40,13 @@ const SideBar = () => {
             <li className="nav-item">
               <NavLink to="/aeroplanes/create" className="nav-link">
                 <FontAwesomeIcon icon={faPlaneUp} className="navIcon" />
-                <span className="navText">AIRPLANES</span>
+                <span className="navText">ADD AEROPLANE</span>
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink to="/reserve" className="nav-link">
                 <FontAwesomeIcon icon={faBookmark} className="navIcon" />
-                <span className="navText">RESERVE AIRPLANE</span>
+                <span className="navText">RESERVE AEROPLANE</span>
               </NavLink>
             </li>
             <li className="nav-item">
@@ -58,7 +58,7 @@ const SideBar = () => {
             <li className="nav-item">
               <NavLink to="/test-drive" className="nav-link">
                 <FontAwesomeIcon icon={faTrash} className="navIcon" />
-                <span className="navText">DELETE AIRPLANE</span>
+                <span className="navText">DELETE AEROPLANE</span>
               </NavLink>
             </li>
           </ul>
