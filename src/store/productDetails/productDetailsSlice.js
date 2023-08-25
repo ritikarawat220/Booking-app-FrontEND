@@ -34,7 +34,6 @@ export const productDetailsSlice = createSlice({
       }))
       .addCase(fetchProductDetails.fulfilled, (state, action) => {
         const newProducts = [];
-        // console.log(action.payload);
         action.payload.map((element) => newProducts.push({
           id: element.id,
           name: element.name,
@@ -52,7 +51,6 @@ export const productDetailsSlice = createSlice({
       .addCase(fetchProductDetails.rejected, (state) => ({
         ...state,
         isLoading: false,
-        // isError: true,
       }));
   },
 });
