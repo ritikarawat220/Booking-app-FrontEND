@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signupAsync } from '../../../store/authentication/signup';
 
-function Signup() {
+const Signup = () => {
   const dispatch = useDispatch();
   const {
     loading, error, user, token,
