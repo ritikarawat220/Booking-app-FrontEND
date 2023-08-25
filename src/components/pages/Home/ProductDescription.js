@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import './ProductDescription.css';
 
-export default function ProductDescription() {
+const ProductDescription = () => {
   const { id } = useParams();
   const selectedAirplane = useSelector((state) => state.selectedAirplane);
 
@@ -42,3 +42,6 @@ export default function ProductDescription() {
     </div>
   );
 }
+
+export default ProductDescription;
+
