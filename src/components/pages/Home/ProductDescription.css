@@ -43,12 +43,9 @@
 
 .vehicle-info-details {
   list-style-type: none;
-
-  /* border: 2px dashed; */
 }
 
 .vehicle-info-details li {
-  /* border: 2px dashed; */
   padding: 0.6rem;
   display: flex;
   justify-content: space-between;

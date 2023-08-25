@@ -41,7 +41,6 @@ const ProductDescription = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ProductDescription;
-

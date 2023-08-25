@@ -17,7 +17,7 @@ import DeleteAeroplane from './components/pages/Aeroplane/DeleteAeroplane';
 import MainComponent from './components/pages/Aeroplane/Aeroplanes';
 import Protected from './components/Protected';
 
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
