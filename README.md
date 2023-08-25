@@ -41,7 +41,7 @@
 
 **[Aeroplane Reservation API]** is a rails API used to to reservae an aeroplane for purchase and uses JSON web token to authenticate user login, signup and logout.
 
-## Link for the:<a href="https://github.com/ritikarawat220/Booking-app-FrontEND"> Frontend repository </a>
+## Link for the:<a href="https://github.com/ritikarawat220/Booking-app-BackEND"> Frontend repository </a>
 
 ## 🛠 Built With <a name="built-with"></a>
 
